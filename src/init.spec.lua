@@ -68,40 +68,6 @@ return function()
                     Disconnect = function() end;
                 })
             end).never.to.throw()
-
-            local function GetValidTypeArray()
-                return {
-                    Instance.new("Part");
-                    game.ChildAdded:Connect(function() end);
-                    Cleaner.new();
-                    coroutine.running();
-                    function() end;
-                    { Destroy = function() end };
-                    { Disconnect = function() end };
-                }
-            end
-
-            expect(function() -- Array of all valid types above
-                Cleaner.new():Add(GetValidTypeArray())
-            end).never.to.throw()
-
-            expect(function() -- Valid types + number
-                local Valid = GetValidTypeArray()
-                table.insert(Valid, 1)
-                Cleaner.new():Add(Valid)
-            end).to.throw()
-
-            expect(function() -- Valid types + string
-                local Valid = GetValidTypeArray()
-                table.insert(Valid, "test")
-                Cleaner.new():Add(Valid)
-            end).to.throw()
-
-            expect(function() -- Valid types + unsupported object
-                local Valid = GetValidTypeArray()
-                table.insert(Valid, {})
-                Cleaner.new():Add(Valid)
-            end).to.throw()
         end)
 
         it("should accept multiple CleanableObjects as args", function()
@@ -244,29 +210,23 @@ return function()
             expect(Disconnected).to.equal(true)
         end)
 
-        it("should clean objects given in an array", function()
+        it("should clean up with custom method support", function()
             local Test = Cleaner.new()
-            local Count = 0
+            local DidRun = false
 
-            Test:Add({
-                function()
-                    Count += 1
-                end;
-                {
-                    Disconnect = function()
-                        Count += 1
-                    end;
-                };
-                {
-                    Destroy = function()
-                        Count += 1
-                    end;
-                };
-            })
+            local Object = {
+                Test = function(_, X, Y, Z)
+                    expect(X).to.equal(1)
+                    expect(Y).to.equal(2)
+                    expect(Z).to.equal(3)
 
-            expect(Count).to.equal(0)
+                    DidRun = true
+                end
+            }
+            Test:Add(Test.CustomMethod(Object, "Test", 1, 2, 3))
             Test:Clean()
-            expect(Count).to.equal(3)
+
+            expect(DidRun).to.equal(true)
         end)
     end)
 

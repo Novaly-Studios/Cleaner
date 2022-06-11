@@ -1,0 +1,12 @@
+{
+  "name": "Cleaner",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedFirst": {
+      "$ignoreUnknownInstances": true,
+      "$className": "ReplicatedFirst",
+      "$path": "Packages",
+      "Cleaner": {"$path": "src"}
+    }
+  }
+}

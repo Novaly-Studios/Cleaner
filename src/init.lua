@@ -1,26 +1,44 @@
-export type CleanableObject = Instance -- Instances
-                                | RBXScriptConnection -- Signal connections
-                                | Cleaner -- Other Cleaners
-                                | thread -- Coroutines
-                                | ( () -> () ) -- Functions
-                                | { Destroy: ( () -> () ) } -- Objects with Destroy method
-                                | { Disconnect: ( () -> () ) } -- Objects with Disconnect method
-                                | { CleanableObject } -- Array of any CleanableObjects
+local TypeGuard = require(script.Parent:WaitForChild("TypeGuard"))
 
-export type Cleaner = {
-    _Index: number,
-    _DidClean: boolean,
-    _CleanList: { CleanableObject }
-}
+local ValidClass = TypeGuard.Object():OfStructure({
+    __index = TypeGuard.Object();
+    Destroy = TypeGuard.Function():Optional();
+    new = TypeGuard.Function();
+})
 
-local ERR_CLEANER_SELF_REFERENCE = "A Cleaner object was added to itself"
+local CleanerType = TypeGuard.Object():OfStructure({
+    Clean = TypeGuard.Function();
+}):And(ValidClass)
+
+local DestroyableType = TypeGuard.Object():OfStructure({
+    Destroy = TypeGuard.Function();
+})
+
+local CustomSignalType = TypeGuard.Object():OfStructure({
+    Disconnect = TypeGuard.Function();
+})
+
+local CustomMethodType = TypeGuard.Object():OfStructure({
+    IsCustomMethod = TypeGuard.Boolean();
+})
+
+local CleanableType = TypeGuard.Instance()
+                        :Or(TypeGuard.Function())
+                        :Or(TypeGuard.Thread())
+                        :Or(TypeGuard.RBXScriptConnection())
+                        :Or(CleanerType:Equals(function(self)
+                            return self -- Cleaners should not be able to Add() themselves because that would just cause recursion overflow
+                        end):Negate())
+                        :Or(DestroyableType)
+                        :Or(CustomSignalType)
+                        :Or(CustomMethodType)
+
+local VALIDATE_METHOD_PARAMS = true
+local VALIDATE_CLEANABLES = true
+
 local ERR_CLASS_ALREADY_WRAPPED = "Class already wrapped"
-local ERR_UNSUPPORTED_TYPE = "Unsupported type in Cleaner: %s"
 local ERR_OBJECT_FINISHED = "Object lifecycle ended, but key %s was indexed"
-local ERR_INVALID_OBJECT = "Object passed was an unsupported type"
-local ERR_NOT_A_CLASS = "Table passed was not a valid class"
 local ERR_NO_OBJECT = "No object given"
-local ERR_NO_CLASS = "No class given"
 
 local TYPE_SCRIPT_CONNECTION = "RBXScriptConnection"
 local TYPE_INSTANCE = "Instance"
@@ -35,47 +53,25 @@ local OBJECT_FINALIZED_MT = {
 }
 
 --- New object & utility functions for handling the lifecycles of Lua objects, aims to help prevent memory leaks
-local Cleaner: Cleaner = {}
+local Cleaner = {}
 Cleaner.__index = Cleaner
 Cleaner._Supported = {}
 Cleaner._Validators = {}
-
-Cleaner._Validators[TYPE_TABLE] = function(Item, self)
-    assert(Item ~= self, ERR_CLEANER_SELF_REFERENCE)
-    assert(Item.Disconnect ~= nil or Item.Destroy ~= nil or Item.Clean ~= nil or Item[1] ~= nil, ERR_INVALID_OBJECT)
-
-    if (Item[1] ~= nil) then
-        local Validators = Cleaner._Validators
-
-        for _, Value in ipairs(Item) do
-            assert(Value ~= self, ERR_CLEANER_SELF_REFERENCE)
-            local ValueType = typeof(Value)
-            local TargetValidator = Validators[ValueType]
-            assert(TargetValidator, ERR_UNSUPPORTED_TYPE:format(ValueType))
-            TargetValidator(Value)
-        end
-    end
-end
-
-Cleaner._Validators[TYPE_THREAD] = function() end
-Cleaner._Validators[TYPE_INSTANCE] = function() end
-Cleaner._Validators[TYPE_FUNCTION] = function() end
-Cleaner._Validators[TYPE_SCRIPT_CONNECTION] = function() end
+Cleaner._ObjectMethods = {"Disconnect", "Destroy", "Clean"}
 
 Cleaner._Supported[TYPE_TABLE] = function(Item)
-    -- Custom Signal libraries
-    if (not Cleaner.IsLocked(Item) and Item.Disconnect) then
-        Item:Disconnect()
-    end
+    for _, MethodName in ipairs(Cleaner._ObjectMethods) do
+        if (Cleaner.IsLocked(Item)) then
+            break
+        end
 
-    -- Lua objects with standard lifecycle denoted by Destroy
-    if (not Cleaner.IsLocked(Item) and Item.Destroy) then
-        Item:Destroy()
-    end
+        local Method = Item[MethodName]
 
-    -- Single cleaner
-    if (not Cleaner.IsLocked(Item) and Item.Clean) then
-        Item:Clean()
+        if (not Method) then
+            continue
+        end
+
+        Method(Item)
     end
 
     -- Array of cleanables (can include other Cleaners)
@@ -112,31 +108,30 @@ function Cleaner.new()
     }, Cleaner)
 end
 
+local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
 --- Adds an object to this Cleaner. Object must be one of the following:
 --- - Cleaner
 --- - Function
---- - Coroutine
+--- - Coroutine / Thread
 --- - Roblox Instance
 --- - Roblox Event Connection
---- - Table of cleanable objects
+--- - Custom Method (via Cleaner.CustomMethod)
 --- - Table containing one of the following methods:
 ---   - Object:Clean()
 ---   - Object:Destroy()
 ---   - Object:Disconnect()
-function Cleaner:Add(...: CleanableObject)
-    local Validators = Cleaner._Validators
+function Cleaner:Add(...)
+    if (VALIDATE_CLEANABLES) then
+        AddParams(self, ...)
+    end
+
     local CleanList = self._CleanList
 
     -- Verify types & push onto array
-    for _, Item in ipairs({...}) do
-        local Type = typeof(Item)
-        local Validator = Validators[Type]
-        assert(Validator, ERR_UNSUPPORTED_TYPE:format(Type))
+    local Size = select("#", ...)
 
-        if (Validator) then
-            Validator(Item, self)
-        end
-
+    for Index = 1, Size do
+        local Item = select(Index, ...)
         CleanList[self._Index] = Item
         self._Index += 1
     end
@@ -145,6 +140,8 @@ function Cleaner:Add(...: CleanableObject)
     if (self._DidClean) then
         self:Clean()
     end
+
+    return self
 end
 Cleaner.add = Cleaner.Add
 
@@ -197,6 +194,7 @@ Cleaner.delay = Cleaner.Delay
 function Cleaner.Lock(Object)
     assert(Object, ERR_NO_OBJECT)
 
+    -- Have to "nil" everything to ensure the __index error works
     for Key in pairs(Object) do
         Object[Key] = nil
     end
@@ -204,13 +202,14 @@ function Cleaner.Lock(Object)
     setmetatable(Object, OBJECT_FINALIZED_MT)
     table.freeze(Object)
 end
+if (VALIDATE_METHOD_PARAMS) then
+    Cleaner.Lock = TypeGuard.WrapFunctionParams(Cleaner.Lock, TypeGuard.Object())
+end
 Cleaner.lock = Cleaner.Lock
 
 --- Wraps the class to ensure more lifecycle safety, including auto-lock on Destroy
 function Cleaner.Wrap(Class)
-    assert(Class, ERR_NO_CLASS)
     assert(not Cleaner.IsWrapped(Class), ERR_CLASS_ALREADY_WRAPPED)
-    assert(Class.__index ~= nil and Class.new ~= nil, ERR_NOT_A_CLASS)
 
     -- Creation --
     local OriginalNew = Class.new
@@ -236,11 +235,17 @@ function Cleaner.Wrap(Class)
 
     return Class
 end
+if (VALIDATE_METHOD_PARAMS) then
+    Cleaner.Wrap = TypeGuard.WrapFunctionParams(Cleaner.Wrap, ValidClass)
+end
 Cleaner.wrap = Cleaner.Wrap
 
 --- Determines if a class is already wrapped
 function Cleaner.IsWrapped(Class)
     return Class._CLEANER_WRAPPED ~= nil
+end
+if (VALIDATE_METHOD_PARAMS) then
+    Cleaner.IsWrapped = TypeGuard.WrapFunctionParams(Cleaner.IsWrapped, ValidClass)
 end
 Cleaner.isWrapped = Cleaner.IsWrapped
 
@@ -248,6 +253,22 @@ Cleaner.isWrapped = Cleaner.IsWrapped
 function Cleaner.IsLocked(Object)
     return getmetatable(Object) == OBJECT_FINALIZED_MT
 end
+if (VALIDATE_METHOD_PARAMS) then
+    Cleaner.IsLocked = TypeGuard.WrapFunctionParams(Cleaner.IsLocked, TypeGuard.Object())
+end
 Cleaner.isLocked = Cleaner.IsLocked
+
+-- Creates an object which signals for a Cleaner to call an arbitrary method name with a set of params
+function Cleaner.CustomMethod(Object, Name, ...)
+    local Args = {...}
+
+    return {
+        IsCustomMethod = true;
+
+        Destroy = function()
+            Object[Name](Object, unpack(Args))
+        end;
+    };
+end
 
 return Cleaner
