@@ -81,18 +81,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>67.3751678</X>
-					<Y>55.0330315</Y>
-					<Z>-43.2143364</Z>
-					<R00>0.792322397</R00>
-					<R01>0.0505761988</R01>
-					<R02>0.608002722</R02>
+					<X>67.5873795</X>
+					<Y>55.0748329</Y>
+					<Z>-43.3989639</Z>
+					<R00>0.698625982</R00>
+					<R01>0.0443581119</R01>
+					<R02>0.714110792</R02>
 					<R10>-0</R10>
-					<R11>0.99655807</R11>
-					<R12>-0.0828978494</R12>
-					<R20>-0.610102654</R20>
-					<R21>0.0656818226</R21>
-					<R22>0.789595246</R22>
+					<R11>0.998076439</R11>
+					<R12>-0.0619970746</R12>
+					<R20>-0.715487182</R20>
+					<R21>0.0433127657</R21>
+					<R22>0.697282076</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -4195,7 +4195,9 @@ Cleaner._Supported[TYPE_THREAD] = function(Item)
     coroutine.close(Item)
 end
 
-Cleaner._Supported[TYPE_FUNCTION] = task.spawn
+Cleaner._Supported[TYPE_FUNCTION] = function(Item)
+    Item()
+end
 
 Cleaner._Supported[TYPE_SCRIPT_CONNECTION] = function(Item)
     Item:Disconnect()
@@ -4217,10 +4219,10 @@ local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
 --- Adds an object to this Cleaner. Object must be one of the following:
 --- - Cleaner
 --- - Function
---- - Coroutine
+--- - Coroutine / Thread
 --- - Roblox Instance
 --- - Roblox Event Connection
---- - Table of cleanable objects
+--- - Custom Method (via Cleaner.CustomMethod)
 --- - Table containing one of the following methods:
 ---   - Object:Clean()
 ---   - Object:Destroy()
@@ -4256,7 +4258,7 @@ function Cleaner:Clean()
     local CleanList = self._CleanList
 
     for Index, Item in ipairs(CleanList) do
-        Supported[typeof(Item)](Item)
+        task.spawn(Supported[typeof(Item)], Item)
         CleanList[Index] = nil
     end
 
@@ -4299,6 +4301,7 @@ Cleaner.delay = Cleaner.Delay
 function Cleaner.Lock(Object)
     assert(Object, ERR_NO_OBJECT)
 
+    -- Have to "nil" everything to ensure the __index error works
     for Key in pairs(Object) do
         Object[Key] = nil
     end

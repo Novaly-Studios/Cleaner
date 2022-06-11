@@ -90,7 +90,9 @@ Cleaner._Supported[TYPE_THREAD] = function(Item)
     coroutine.close(Item)
 end
 
-Cleaner._Supported[TYPE_FUNCTION] = task.spawn
+Cleaner._Supported[TYPE_FUNCTION] = function(Item)
+    Item()
+end
 
 Cleaner._Supported[TYPE_SCRIPT_CONNECTION] = function(Item)
     Item:Disconnect()
@@ -151,7 +153,7 @@ function Cleaner:Clean()
     local CleanList = self._CleanList
 
     for Index, Item in ipairs(CleanList) do
-        Supported[typeof(Item)](Item)
+        task.spawn(Supported[typeof(Item)], Item)
         CleanList[Index] = nil
     end
 
