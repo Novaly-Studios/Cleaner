@@ -7,4 +7,4 @@ license = "MIT"
 authors = ["tpc9000"]
 
 [dependencies]
-TypeGuard = "tpc9000/typeguard@1.1.0"
+TypeGuard = "tpc9000/typeguard@2.1.0"
