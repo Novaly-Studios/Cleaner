@@ -1,14 +1,14 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Workspace" referent="RBX8B810B5D5D9742D4B5D2BE144C6DB93E">
+	<Item class="Workspace" referent="RBX6CEDE4E8F96E41AA9CE8D2FBA28291FA">
 		<Properties>
 			<bool name="AllowThirdPartySales">false</bool>
 			<token name="AnimationWeightedBlendFix">0</token>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<token name="ClientAnimatorThrottling">0</token>
 			<string name="CollisionGroups">Default^0^-1</string>
-			<Ref name="CurrentCamera">RBX9615D17CC7484128AC114B474021B4E3</Ref>
+			<Ref name="CurrentCamera">RBXA6F754B9FDBD4B39BCA9E1C507DFA931</Ref>
 			<double name="DistributedGameTime">0</double>
 			<bool name="ExplicitAutoJoints">true</bool>
 			<float name="FallenPartsDestroyHeight">-500</float>
@@ -59,7 +59,7 @@
 			<BinaryString name="Tags"></BinaryString>
 			<bool name="TerrainWeldsFixed">true</bool>
 			<bool name="TouchesUseCollisionGroups">false</bool>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001e0ea</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001e0ea</UniqueId>
 			<OptionalCoordinateFrame name="WorldPivotData">
 				<CFrame>
 					<X>0</X>
@@ -77,22 +77,22 @@
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
-		<Item class="Camera" referent="RBX9615D17CC7484128AC114B474021B4E3">
+		<Item class="Camera" referent="RBXA6F754B9FDBD4B39BCA9E1C507DFA931">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>9.80801296</X>
-					<Y>17.6406345</Y>
-					<Z>19.851799</Z>
-					<R00>0.930179656</R00>
-					<R01>-0.202274948</R01>
-					<R02>0.306350708</R02>
+					<X>0</X>
+					<Y>20</Y>
+					<Z>20</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>-0</R02>
 					<R10>-0</R10>
-					<R11>0.834504902</R11>
-					<R12>0.551000595</R12>
-					<R20>-0.367104769</R20>
-					<R21>-0.512529552</R21>
-					<R22>0.776239395</R22>
+					<R11>0.780868828</R11>
+					<R12>0.624695063</R12>
+					<R20>0</R20>
+					<R21>-0.624695063</R21>
+					<R22>0.780868828</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -117,10 +117,10 @@
 				<string name="Name">Camera</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb16</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb16</UniqueId>
 			</Properties>
 		</Item>
-		<Item class="Terrain" referent="RBX348F27E2D16D4BDB85A411ABB49D68CB">
+		<Item class="Terrain" referent="RBX8AA64F84D1D2465AB96E13EF0A3139BA">
 			<Properties>
 				<token name="AcquisitionMethod">0</token>
 				<bool name="Anchored">true</bool>
@@ -206,7 +206,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<token name="TopSurface">3</token>
 				<token name="TopSurfaceInput">0</token>
 				<float name="Transparency">0</float>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb88</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb88</UniqueId>
 				<Vector3 name="Velocity">
 					<X>0</X>
 					<Y>0</Y>
@@ -229,7 +229,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="SoundService" referent="RBX4208F98ED9CE4744BBB3118ED5051EDA">
+	<Item class="SoundService" referent="RBX0FB6BD088CAA461BAF24BB0682DC7C8D">
 		<Properties>
 			<token name="AmbientReverb">0</token>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -240,28 +240,28 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<float name="RolloffScale">1</float>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fac9</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fac9</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="NonReplicatedCSGDictionaryService" referent="RBX0C1ABC9FCA834FA1AE1EAA942CFE4F97">
+	<Item class="NonReplicatedCSGDictionaryService" referent="RBX2DFBD0D63E0445298E67444054EB346D">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">NonReplicatedCSGDictionaryService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fad5</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fad5</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="CSGDictionaryService" referent="RBX8370550791C042B88797451D9B92E5E3">
+	<Item class="CSGDictionaryService" referent="RBX934BC9A5A25846918E166E93F1C95D7E">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CSGDictionaryService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fad6</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fad6</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Chat" referent="RBX50E89C27845D48E6A1EA062006557787">
+	<Item class="Chat" referent="RBXE959FBCB4D41476AA0BE24F933C171AF">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="BubbleChatEnabled">false</bool>
@@ -269,19 +269,19 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<string name="Name">Chat</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fadb</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fadb</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="TimerService" referent="RBXE0317CD90AC54EB595CB0C0B66176177">
+	<Item class="TimerService" referent="RBX3714C240C1EB4D0D8B12B18B4E2DD334">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fadc</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fadc</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Players" referent="RBX7F0EF2349CB44A97B1818F90A927CD7D">
+	<Item class="Players" referent="RBXF8FA301F1CF44679B28D1C1DE46AB1F9">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="CharacterAutoLoads">true</bool>
@@ -291,7 +291,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<float name="RespawnTime">5</float>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fade</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fade</UniqueId>
 		</Properties>
 	</Item>
 	<Item class="ReplicatedFirst" referent="0">
@@ -300,762 +300,43 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<string name="Name">ReplicatedFirst</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fae2</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fae2</UniqueId>
 		</Properties>
 		<Item class="ModuleScript" referent="1">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<Content name="LinkedSource"><null></null></Content>
 				<string name="Name">TypeGuard</string>
-				<string name="ScriptGuid">{F1046D3C-1595-4B95-80B0-3F5051D91AA9}</string>
+				<string name="ScriptGuid">{92E9A44E-7563-49C9-B320-DA6838B32B0A}</string>
 				<ProtectedString name="Source"><![CDATA[return require(script.Parent._Index["tpc9000_typeguard@2.1.0"]["typeguard"])
 ]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb81</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb81</UniqueId>
 			</Properties>
 		</Item>
-		<Item class="ModuleScript" referent="6">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">Cleaner</string>
-				<string name="ScriptGuid">{8356DB2E-B70C-4F72-981C-9EBA6C2341D0}</string>
-				<ProtectedString name="Source"><![CDATA[local TypeGuard = require(script.Parent:WaitForChild("TypeGuard"))
-
-local ValidClass = TypeGuard.Object():OfStructure({
-    __index = TypeGuard.Object();
-    Destroy = TypeGuard.Function();
-    new = TypeGuard.Function();
-})
-
-local CleanerType = TypeGuard.Object():OfStructure({
-    IsCleaner = TypeGuard.Boolean();
-})
-
-local DestroyableType = TypeGuard.Object():OfStructure({
-    Destroy = TypeGuard.Function();
-})
-
-local CustomSignalType = TypeGuard.Object():OfStructure({
-    Disconnect = TypeGuard.Function();
-})
-
-local CustomMethodType = TypeGuard.Object():OfStructure({
-    IsCustomMethod = TypeGuard.Boolean();
-})
-
-local CleanableType = TypeGuard.Instance()
-                        :Or(TypeGuard.Function())
-                        :Or(TypeGuard.Thread())
-                        :Or(TypeGuard.RBXScriptConnection())
-                        :Or(CleanerType:Equals(function(self)
-                            return self -- Cleaners should not be able to Add() themselves because that would just cause recursion overflow
-                        end):Negate())
-                        :Or(DestroyableType)
-                        :Or(CustomSignalType)
-                        :Or(CustomMethodType)
-
-local VALIDATE_METHOD_PARAMS = true
-local VALIDATE_CLEANABLES = true
-
-local ERR_CLASS_ALREADY_WRAPPED = "Class already wrapped"
-local ERR_OBJECT_FINISHED = "Object lifecycle ended, but key %s was indexed"
-
-local TYPE_SCRIPT_CONNECTION = "RBXScriptConnection"
-local TYPE_INSTANCE = "Instance"
-local TYPE_FUNCTION = "function"
-local TYPE_THREAD = "thread"
-local TYPE_TABLE = "table"
-
-local OBJECT_FINALIZED_MT = {
-    __index = function(_, Key)
-        error(ERR_OBJECT_FINISHED:format(tostring(Key)))
-    end;
-}
-
-local SUPPORTED_OBJECT_METHODS = {"Disconnect", "Destroy", "Clean"}
-
---- New object & utility functions for handling the lifecycles of Lua objects, aims to help prevent memory leaks
-local Cleaner = {}
-Cleaner.__index = Cleaner
-
--- Any extra implementations go here
-local SupportedCleanables = {}
-
-SupportedCleanables[TYPE_TABLE] = function(Item)
-    local IsLocked = Cleaner.IsLocked
-
-    for _, MethodName in ipairs(SUPPORTED_OBJECT_METHODS) do
-        if (IsLocked(Item)) then
-            break
-        end
-
-        local Method = Item[MethodName]
-
-        if (not Method) then
-            continue
-        end
-
-        Method(Item)
-    end
-
-    -- There should be no last resort case because the type validator should filter in all supported object types
-end
-
-SupportedCleanables[TYPE_THREAD] = function(Item)
-    coroutine.close(Item)
-end
-
-SupportedCleanables[TYPE_FUNCTION] = function(Item)
-    Item()
-end
-
-SupportedCleanables[TYPE_SCRIPT_CONNECTION] = function(Item)
-    Item:Disconnect()
-end
-
-SupportedCleanables[TYPE_INSTANCE] = function(Item)
-    Item:Destroy()
-end
-
-function Cleaner.new()
-    return setmetatable({
-        IsCleaner = true;
-        _DidClean = false;
-        _CleanList = {};
-        _Index = 1;
-    }, Cleaner)
-end
-
-local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
---- Adds an object to this Cleaner. Object must be one of the following:
---- - Cleaner
---- - Function
---- - Coroutine / Thread
---- - Roblox Instance
---- - Roblox Event Connection
---- - Custom Method (via Cleaner.CustomMethod)
---- - Table containing one of the following methods:
----   - Object:Clean()
----   - Object:Destroy()
----   - Object:Disconnect()
-function Cleaner:Add(...): typeof(Cleaner)
-    if (VALIDATE_CLEANABLES) then
-        AddParams(self, ...)
-    end
-
-    local CleanList = self._CleanList
-
-    -- Verify types & push onto array
-    local Size = select("#", ...)
-    local Index = self._Index
-
-    for Arg = 1, Size do
-        local Item = select(Arg, ...)
-        CleanList[Index] = Item
-        Index += 1
-    end
-
-    self._Index = Index
-
-    -- Add after Clean called? Likely result of bad yielding, so clean up whatever is doing this.
-    if (self._DidClean) then
-        self:Clean()
-    end
-
-    return self
-end
-Cleaner.add = Cleaner.Add
-
---- Cleans and locks this Cleaner preventing it from being used again. If an object is added to the Cleaner after it has been locked, it will be cleaned immediately.
-function Cleaner:Clean()
-    local CleanList = self._CleanList
-
-    for Index, Item in ipairs(CleanList) do
-        SupportedCleanables[typeof(Item)](Item)
-        CleanList[Index] = nil
-    end
-
-    self._Index = 1
-    self._DidClean = true
-end
-Cleaner.clean = Cleaner.Clean
-
---- Adds whatever coroutine called this method to the Cleaner
-function Cleaner:AddContext(): typeof(Cleaner)
-    return self:Add(coroutine.running())
-end
-Cleaner.addContext = Cleaner.AddContext
-
-local function CleanerSpawn(self, Call, ...)
-    self:AddContext()
-    Call(...)
-end
-
-local SpawnParams = TypeGuard.Params(TypeGuard.Function())
---- Spawns a coroutine & adds to the Cleaner
-function Cleaner:Spawn(Callback, ...): typeof(Cleaner)
-    if (VALIDATE_METHOD_PARAMS) then
-        SpawnParams(Callback)
-    end
-
-    task.spawn(CleanerSpawn, self, Callback, ...)
-    return self
-end
-Cleaner.spawn = Cleaner.Spawn
-
-local function CleanerDelay(Duration, Call, ...)
-    task.wait(Duration)
-    Call()
-end
-
-local DelayParams = TypeGuard.Params(TypeGuard.Number(), TypeGuard.Function())
---- Delays a spawned coroutine & adds to cleaner
-function Cleaner:Delay(Time, Callback, ...): typeof(Cleaner)
-    if (VALIDATE_METHOD_PARAMS) then
-        DelayParams(Time, Callback)
-    end
-
-    self:Spawn(CleanerDelay, Time, Callback, ...)
-    return self
-end
-Cleaner.delay = Cleaner.Delay
-
--------------------- Standalone functions --------------------
-
-local LockParams = TypeGuard.Params(TypeGuard.Object())
---- Permanently locks down an object once finished
-function Cleaner.Lock(Object)
-    if (VALIDATE_METHOD_PARAMS) then
-        LockParams(Object)
-    end
-
-    -- Have to "nil" everything to ensure the __index error works
-    for Key in pairs(Object) do
-        Object[Key] = nil
-    end
-
-    setmetatable(Object, OBJECT_FINALIZED_MT)
-    table.freeze(Object)
-end
-
-local WrapParams = TypeGuard.Params(ValidClass)
---- Wraps the class to ensure more lifecycle safety, including auto-lock on Destroy
-function Cleaner.Wrap(Class)
-    if (VALIDATE_METHOD_PARAMS) then
-        WrapParams(Class)
-        assert(not Cleaner.IsWrapped(Class), ERR_CLASS_ALREADY_WRAPPED)
-    end
-
-    local OriginalDestroy = Class.Destroy
-
-    Class.Destroy = function(self, ...)
-        OriginalDestroy(self, ...)
-        Cleaner.Lock(self)
-    end
-
-    Class._CLEANER_WRAPPED = true
-
-    return Class
-end
-Cleaner.wrap = Cleaner.Wrap
-
-local IsWrappedParams = TypeGuard.Params(ValidClass)
---- Determines if a class is already wrapped
-function Cleaner.IsWrapped(Class)
-    if (VALIDATE_METHOD_PARAMS) then
-        IsWrappedParams(Class)
-    end
-
-    return Class._CLEANER_WRAPPED ~= nil
-end
-Cleaner.isWrapped = Cleaner.IsWrapped
-
-local IsLockedParams = TypeGuard.Params(TypeGuard.Object())
--- Determines if an object is locked via the mechanism in Cleaner
-function Cleaner.IsLocked(Object)
-    if (VALIDATE_METHOD_PARAMS) then
-        IsLockedParams(Object)
-    end
-
-    return getmetatable(Object) == OBJECT_FINALIZED_MT
-end
-Cleaner.isLocked = Cleaner.IsLocked
-
-local CustomMethodParams = TypeGuard.Params(TypeGuard.Object(), TypeGuard.String())
--- Creates an object which signals for a Cleaner to call an arbitrary method name with a set of params
-function Cleaner.CustomMethod(Object, Name, ...)
-    if (VALIDATE_METHOD_PARAMS) then
-        CustomMethodParams(Object, Name)
-    end
-
-    return {
-        _Args = {...};
-        IsCustomMethod = true;
-
-        Destroy = function(self)
-            Object[Name](Object, unpack(self._Args))
-        end;
-    };
-end
-
-return Cleaner]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb86</UniqueId>
-			</Properties>
-			<Item class="ModuleScript" referent="7">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">init.spec</string>
-					<string name="ScriptGuid">{6367130C-1A7E-4EC8-8CE1-E6C8667687C5}</string>
-					<ProtectedString name="Source"><![CDATA[return function()
-    local Cleaner = require(script.Parent)
-
-    local function GetTestClass()
-        local TestClass = {}
-        TestClass.__index = TestClass
-
-        function TestClass.new()
-            return setmetatable({}, TestClass)
-        end
-
-        function TestClass:Destroy() end
-
-        return TestClass
-    end
-
-    describe("Cleaner.new", function()
-        it("should create a new Cleaner", function()
-            expect(Cleaner.new()).never.to.equal(nil)
-            expect(Cleaner.new()).to.be.a("table")
-        end)
-    end)
-
-    describe("Cleaner.Add", function()
-        it("should reject invalid objects", function()
-            expect(function() -- Number
-                Cleaner.new():Add(1)
-            end).to.throw()
-
-            expect(function() -- String
-                Cleaner.new():Add("test")
-            end).to.throw()
-
-            expect(function() -- Empty/unsupported object
-                Cleaner.new():Add({})
-            end).to.throw()
-        end)
-
-        it("should accept only valid CleanableObjects", function()
-            expect(function() -- Instance
-                Cleaner.new():Add(Instance.new("Part"))
-            end).never.to.throw()
-
-            expect(function() -- Inbuilt Signal connection
-                local Connection = game.ChildAdded:Connect(function() end)
-                Cleaner.new():Add(Connection)
-                Connection:Disconnect()
-            end).never.to.throw()
-
-            expect(function() -- Cleaner
-                Cleaner.new():Add(Cleaner.new())
-            end).never.to.throw()
-
-            expect(function() -- Coroutine
-                Cleaner.new():Add(coroutine.running())
-            end).never.to.throw()
-
-            expect(function() -- Function
-                Cleaner.new():Add(function() end)
-            end).never.to.throw()
-
-            expect(function() -- Custom object
-                Cleaner.new():Add({
-                    Destroy = function() end;
-                })
-            end).never.to.throw()
-
-            expect(function() -- Custom Signal implementation
-                Cleaner.new():Add({
-                    Disconnect = function() end;
-                })
-            end).never.to.throw()
-        end)
-
-        it("should accept multiple CleanableObjects as args", function()
-            expect(function()
-                Cleaner.new():Add({
-                    Destroy = function() end;
-                }, {
-                    Disconnect = function() end;
-                })
-            end).never.to.throw()
-        end)
-
-        it("should reject when Cleaner is passed itself", function()
-            local Test = Cleaner.new()
-
-            expect(function()
-                Test:Add(Test)
-            end).to.throw()
-
-            expect(function()
-                Test:Add({Test})
-            end).to.throw()
-
-            expect(function()
-                Test:Add({game, Test})
-            end).to.throw()
-        end)
-    end)
-
-    describe("Cleaner.Clean", function()
-        it("should destroy Instances", function()
-            local Part = Instance.new("Part")
-            Part.Parent = game:GetService("Workspace")
-
-            local Test = Cleaner.new()
-            Test:Add(Part)
-            Test:Clean()
-
-            expect(Part.Parent).to.equal(nil)
-        end)
-
-        it("should clean up script signal connections", function()
-            local Part = Instance.new("Part")
-            local Activated = 0
-
-            local Test = Cleaner.new()
-            Test:Add(Part.ChildAdded:Connect(function()
-                Activated += 1
-            end))
-            Instance.new("Part", Part)
-            Test:Clean()
-            Instance.new("Part", Part)
-
-            expect(Activated).to.equal(1)
-        end)
-
-        it("should clean up other cleaners", function()
-            local Cleaned = false
-
-            local Test1 = Cleaner.new()
-                local Test2 = Cleaner.new()
-                Test2:Add(function()
-                    Cleaned = true
-                end)
-            Test1:Add(Test2)
-            Test1:Clean()
-
-            expect(Cleaned).to.equal(true)
-        end)
-
-        it("should close coroutines", function()
-            local Closed = true
-            local Running
-
-            task.spawn(function()
-                Running = coroutine.running()
-                task.wait()
-                Closed = false
-            end)
-
-            local Test = Cleaner.new()
-            Test:Add(Running)
-            Test:Clean()
-
-            task.wait()
-            expect(Closed).to.equal(true)
-        end)
-
-        --[[ it("should run functions async", function()
-            local Count = 0
-
-            local Test = Cleaner.new()
-
-            for _ = 1, 5 do
-                Test:Add(function()
-                    Count += 1
-                end)
-            end
-
-            for _ = 1, 5 do
-                Test:Add(function()
-                    task.wait(1)
-                    Count += 1
-                end)
-            end
-
-            local Time = os.clock()
-            Test:Clean()
-            expect(os.clock() - Time).to.be.near(0, 1/1000)
-            expect(Count).to.equal(5)
-        end) ]]
-
-        it("should call Destroy on custom objects", function()
-            local Test = Cleaner.new()
-            local Destroyed = false
-
-            Test:Add({
-                Destroy = function()
-                    Destroyed = true
-                end;
-            })
-
-            expect(Destroyed).to.equal(false)
-            Test:Clean()
-            expect(Destroyed).to.equal(true)
-        end)
-
-        it("should call Disconnect on custom signals", function()
-            local Test = Cleaner.new()
-            local Disconnected = false
-
-            Test:Add({
-                Disconnect = function()
-                    Disconnected = true
-                end;
-            })
-
-            expect(Disconnected).to.equal(false)
-            Test:Clean()
-            expect(Disconnected).to.equal(true)
-        end)
-
-        it("should clean up with custom method support", function()
-            local Test = Cleaner.new()
-            local DidRun = false
-
-            local Object = {
-                Test = function(_, X, Y, Z)
-                    expect(X).to.equal(1)
-                    expect(Y).to.equal(2)
-                    expect(Z).to.equal(3)
-
-                    DidRun = true
-                end
-            }
-            Test:Add(Test.CustomMethod(Object, "Test", 1, 2, 3))
-            Test:Clean()
-
-            expect(DidRun).to.equal(true)
-        end)
-    end)
-
-    describe("Cleaner.Add, Cleaner.Clean", function()
-        it("should automatically clean for items added after", function()
-            local Test = Cleaner.new()
-            local Count = 0
-
-            Test:Add({
-                Disconnect = function()
-                    Count += 1
-                end;
-            })
-
-            Test:Clean()
-
-            Test:Add({
-                Disconnect = function()
-                    Count += 1
-                end;
-            })
-
-            expect(Count).to.equal(2)
-        end)
-    end)
-
-    describe("Cleaner.Spawn", function()
-        it("should spawn a function async", function()
-            local Complete = false
-
-            Cleaner.new():Spawn(function()
-                Complete = true
-            end)
-
-            expect(Complete).to.equal(true)
-        end)
-
-        it("should terminate the spawned coroutine when Clean is called", function()
-            local Test = Cleaner.new()
-            local Complete = false
-
-            Test:Spawn(function()
-                task.wait()
-                Complete = true
-            end)
-            Test:Clean()
-
-            task.wait()
-            expect(Complete).to.equal(false)
-        end)
-    end)
-
-    describe("Cleaner.Lock", function()
-        it("should throw with no object given", function()
-            expect(function()
-                Cleaner.Lock()
-            end).to.throw()
-        end)
-
-        it("should accept an object", function()
-            expect(function()
-                Cleaner.Lock({})
-            end).never.to.throw()
-        end)
-
-        it("should disallow reads on an object", function()
-            local Object = {
-                X = 1;
-            }
-
-            Cleaner.Lock(Object)
-
-            expect(function()
-                local Temp1 = Object.X
-            end).to.throw()
-
-            expect(function()
-                local Temp2 = Object.Y
-            end).to.throw()
-        end)
-
-        it("should disallow writes on an object", function()
-            local Object = {
-                X = 1;
-            }
-
-            Cleaner.Lock(Object)
-
-            expect(function()
-                Object.X = 2
-            end).to.throw()
-
-            expect(function()
-                Object.Y = 3
-            end).to.throw()
-        end)
-    end)
-
-    describe("Cleaner.Wrap", function()
-        it("should throw with no class given", function()
-            expect(function()
-                Cleaner.Wrap()
-            end).to.throw()
-        end)
-
-        it("should throw with an invalid class given", function()
-            expect(function()
-                Cleaner.Wrap({
-                    new = function() end;
-                })
-            end).to.throw()
-
-            expect(function()
-                Cleaner.Wrap({
-                    __index = {}
-                })
-            end).to.throw()
-        end)
-
-        it("should accept a valid class", function()
-            local Test = GetTestClass()
-
-            expect(function()
-                Cleaner.Wrap(Test)
-            end).never.to.throw()
-        end)
-
-        it("should lock a destroyed object down", function()
-            local Test = GetTestClass()
-            Cleaner.Wrap(Test)
-
-            expect(function()
-                local Temp = Test.X
-            end).never.to.throw()
-
-            expect(function()
-                Test.Y = 1
-            end).never.to.throw()
-
-            Test:Destroy()
-
-            expect(function()
-                local Temp = Test.X
-            end).to.throw()
-
-            expect(function()
-                Test.Y = 2
-            end).to.throw()
-        end)
-
-        it("should prevent multiple wraps", function()
-            local Test = GetTestClass()
-            Cleaner.Wrap(Test)
-
-            expect(function()
-                Cleaner.Wrap(Test)
-            end).to.throw()
-        end)
-
-        it("should work without Destroy being initially present", function()
-            local Test1 = GetTestClass()
-            Cleaner.Wrap(Test1)
-            expect(Test1.Destroy).to.be.ok()
-
-            local Test2 = GetTestClass()
-            local Destroyed = false
-
-            function Test2:Destroy()
-                Destroyed = true
-            end
-
-            Cleaner.Wrap(Test2)
-            Test2.new():Destroy()
-            expect(Destroyed).to.equal(true)
-        end)
-    end)
-
-    describe("Cleaner.Wrap, Cleaner.IsWrapped", function()
-        it("should detect when a class is wrapped", function()
-            local Test = GetTestClass()
-            expect(Cleaner.IsWrapped(Test)).to.equal(false)
-            Cleaner.Wrap(Test)
-            expect(Cleaner.IsWrapped(Test)).to.equal(true)
-        end)
-    end)
-end]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-					<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb87</UniqueId>
-				</Properties>
-			</Item>
-		</Item>
-		<Item class="Folder" referent="RBXB5B1871E93C14676A77BD41C47ED4304">
+		<Item class="Folder" referent="2">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">_Index</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0002c55e</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb82</UniqueId>
 			</Properties>
-			<Item class="Folder" referent="RBX0F3E70DDA18D4C34BD94BA4F1368835C">
+			<Item class="Folder" referent="3">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<string name="Name">tpc9000_typeguard@2.1.0</string>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
-					<UniqueId name="UniqueId">7746134b1484640102c618cd0002c55f</UniqueId>
+					<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb83</UniqueId>
 				</Properties>
-				<Item class="ModuleScript" referent="RBX4D6B90C20AC241109A3DD1E3EB4DAC79">
+				<Item class="ModuleScript" referent="4">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">typeguard</string>
-						<string name="ScriptGuid">{32EE8BC9-65D7-46B4-AC47-98108BCF8D42}</string>
+						<string name="ScriptGuid">{D93D1B29-E9DA-4651-8F49-9D26E7A3BED3}</string>
 						<ProtectedString name="Source"><![CDATA[local CollectionService = game:GetService("CollectionService")
 -- @TODO This script really needs splitting up into sub-modules
 
@@ -2815,14 +2096,14 @@ end
 return TypeGuard]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
-						<UniqueId name="UniqueId">7746134b1484640102c618cd0002c560</UniqueId>
+						<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb84</UniqueId>
 					</Properties>
-					<Item class="ModuleScript" referent="RBX7A1541C9A11942C3A582BA0784657165">
+					<Item class="ModuleScript" referent="5">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">TypeGuard.spec</string>
-							<string name="ScriptGuid">{43AA43FB-2F68-42CD-B5E0-F97D8EF51AB1}</string>
+							<string name="ScriptGuid">{7EE13491-A3C2-44C5-BFB6-CF1246C1F75A}</string>
 							<ProtectedString name="Source"><![CDATA[local CollectionService = game:GetService("CollectionService")
 
 return function()
@@ -5004,23 +4285,742 @@ return function()
 end]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
-							<UniqueId name="UniqueId">7746134b1484640102c618cd0002c561</UniqueId>
+							<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb85</UniqueId>
 						</Properties>
 					</Item>
 				</Item>
 			</Item>
 		</Item>
+		<Item class="ModuleScript" referent="6">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Cleaner</string>
+				<string name="ScriptGuid">{71C170CB-9978-48D9-BEC8-B7486B9F383E}</string>
+				<ProtectedString name="Source"><![CDATA[local TypeGuard = require(script.Parent:WaitForChild("TypeGuard"))
+
+local ValidClass = TypeGuard.Object():OfStructure({
+    __index = TypeGuard.Object();
+    Destroy = TypeGuard.Function();
+    new = TypeGuard.Function();
+})
+
+local CleanerType = TypeGuard.Object():OfStructure({
+    IsCleaner = TypeGuard.Boolean();
+})
+
+local DestroyableType = TypeGuard.Object():OfStructure({
+    Destroy = TypeGuard.Function();
+})
+
+local CustomSignalType = TypeGuard.Object():OfStructure({
+    Disconnect = TypeGuard.Function();
+})
+
+local CustomMethodType = TypeGuard.Object():OfStructure({
+    IsCustomMethod = TypeGuard.Boolean();
+})
+
+local CleanableType = TypeGuard.Instance()
+                        :Or(TypeGuard.Function())
+                        :Or(TypeGuard.Thread())
+                        :Or(TypeGuard.RBXScriptConnection())
+                        :Or(CleanerType:Equals(function(self)
+                            return self -- Cleaners should not be able to Add() themselves because that would just cause recursion overflow
+                        end):Negate())
+                        :Or(DestroyableType)
+                        :Or(CustomSignalType)
+                        :Or(CustomMethodType)
+
+local VALIDATE_METHOD_PARAMS = true
+local VALIDATE_CLEANABLES = true
+
+local ERR_CLASS_ALREADY_WRAPPED = "Class already wrapped"
+local ERR_OBJECT_FINISHED = "Object lifecycle ended, but key %s was indexed"
+
+local TYPE_SCRIPT_CONNECTION = "RBXScriptConnection"
+local TYPE_INSTANCE = "Instance"
+local TYPE_FUNCTION = "function"
+local TYPE_THREAD = "thread"
+local TYPE_TABLE = "table"
+
+local OBJECT_FINALIZED_MT = {
+    __index = function(_, Key)
+        error(ERR_OBJECT_FINISHED:format(tostring(Key)))
+    end;
+}
+
+local SUPPORTED_OBJECT_METHODS = {"Disconnect", "Destroy", "Clean"}
+
+--- New object & utility functions for handling the lifecycles of Lua objects, aims to help prevent memory leaks
+local Cleaner = {}
+Cleaner.__index = Cleaner
+
+-- Any extra implementations go here
+local SupportedCleanables = {}
+
+SupportedCleanables[TYPE_TABLE] = function(Item)
+    local IsLocked = Cleaner.IsLocked
+
+    for _, MethodName in SUPPORTED_OBJECT_METHODS do
+        if (IsLocked(Item)) then
+            break
+        end
+
+        local Method = Item[MethodName]
+
+        if (not Method) then
+            continue
+        end
+
+        Method(Item)
+    end
+
+    -- There should be no last resort case because the type validator should filter in all supported object types
+end
+
+SupportedCleanables[TYPE_THREAD] = function(Item)
+    coroutine.close(Item)
+end
+
+SupportedCleanables[TYPE_FUNCTION] = function(Item)
+    Item()
+end
+
+SupportedCleanables[TYPE_SCRIPT_CONNECTION] = function(Item)
+    Item:Disconnect()
+end
+
+SupportedCleanables[TYPE_INSTANCE] = function(Item)
+    Item:Destroy()
+end
+
+function Cleaner.new()
+    return setmetatable({
+        IsCleaner = true;
+        _DidClean = false;
+        _CleanList = {};
+        _Index = 1;
+    }, Cleaner)
+end
+
+local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
+--- Adds an object to this Cleaner. Object must be one of the following:
+--- - Cleaner
+--- - Function
+--- - Coroutine / Thread
+--- - Roblox Instance
+--- - Roblox Event Connection
+--- - Custom Method (via Cleaner.CustomMethod)
+--- - Table containing one of the following methods:
+---   - Object:Clean()
+---   - Object:Destroy()
+---   - Object:Disconnect()
+function Cleaner:Add(...): typeof(Cleaner)
+    if (VALIDATE_CLEANABLES) then
+        AddParams(self, ...)
+    end
+
+    local CleanList = self._CleanList
+
+    -- Verify types & push onto array
+    local Size = select("#", ...)
+    local Index = self._Index
+
+    for Arg = 1, Size do
+        local Item = select(Arg, ...)
+        CleanList[Index] = Item
+        Index += 1
+    end
+
+    self._Index = Index
+
+    -- Add after Clean called? Likely result of bad yielding, so clean up whatever is doing this.
+    if (self._DidClean) then
+        self:Clean()
+    end
+
+    return self
+end
+Cleaner.add = Cleaner.Add
+
+--- Cleans and locks this Cleaner preventing it from being used again. If an object is added to the Cleaner after it has been locked, it will be cleaned immediately.
+function Cleaner:Clean()
+    local CleanList = self._CleanList
+
+    for Index, Item in CleanList do
+        SupportedCleanables[typeof(Item)](Item)
+        CleanList[Index] = nil
+    end
+
+    self._Index = 1
+    self._DidClean = true
+end
+Cleaner.clean = Cleaner.Clean
+
+--- Adds whatever coroutine called this method to the Cleaner
+function Cleaner:AddContext(): typeof(Cleaner)
+    return self:Add(coroutine.running())
+end
+Cleaner.addContext = Cleaner.AddContext
+
+local function CleanerSpawn(self, Call, ...)
+    self:AddContext()
+    Call(...)
+end
+
+local SpawnParams = TypeGuard.Params(TypeGuard.Function())
+--- Spawns a coroutine & adds to the Cleaner
+function Cleaner:Spawn(Callback, ...): typeof(Cleaner)
+    if (VALIDATE_METHOD_PARAMS) then
+        SpawnParams(Callback)
+    end
+
+    task.spawn(CleanerSpawn, self, Callback, ...)
+    return self
+end
+Cleaner.spawn = Cleaner.Spawn
+
+local function CleanerDelay(Duration, Call, ...)
+    task.wait(Duration)
+    Call()
+end
+
+local DelayParams = TypeGuard.Params(TypeGuard.Number(), TypeGuard.Function())
+--- Delays a spawned coroutine & adds to cleaner
+function Cleaner:Delay(Time, Callback, ...): typeof(Cleaner)
+    if (VALIDATE_METHOD_PARAMS) then
+        DelayParams(Time, Callback)
+    end
+
+    self:Spawn(CleanerDelay, Time, Callback, ...)
+    return self
+end
+Cleaner.delay = Cleaner.Delay
+
+-------------------- Standalone functions --------------------
+
+local LockParams = TypeGuard.Params(TypeGuard.Object())
+--- Permanently locks down an object once finished
+function Cleaner.Lock(Object)
+    if (VALIDATE_METHOD_PARAMS) then
+        LockParams(Object)
+    end
+
+    -- Have to "nil" everything to ensure the __index error works
+    for Key in Object do
+        Object[Key] = nil
+    end
+
+    setmetatable(Object, OBJECT_FINALIZED_MT)
+    table.freeze(Object)
+end
+
+local WrapParams = TypeGuard.Params(ValidClass)
+--- Wraps the class to ensure more lifecycle safety, including auto-lock on Destroy
+function Cleaner.Wrap(Class)
+    if (VALIDATE_METHOD_PARAMS) then
+        WrapParams(Class)
+        assert(not Cleaner.IsWrapped(Class), ERR_CLASS_ALREADY_WRAPPED)
+    end
+
+    local OriginalDestroy = Class.Destroy
+
+    Class.Destroy = function(self, ...)
+        OriginalDestroy(self, ...)
+        Cleaner.Lock(self)
+    end
+
+    Class._CLEANER_WRAPPED = true
+
+    return Class
+end
+Cleaner.wrap = Cleaner.Wrap
+
+local IsWrappedParams = TypeGuard.Params(ValidClass)
+--- Determines if a class is already wrapped
+function Cleaner.IsWrapped(Class)
+    if (VALIDATE_METHOD_PARAMS) then
+        IsWrappedParams(Class)
+    end
+
+    return Class._CLEANER_WRAPPED ~= nil
+end
+Cleaner.isWrapped = Cleaner.IsWrapped
+
+local IsLockedParams = TypeGuard.Params(TypeGuard.Object())
+-- Determines if an object is locked via the mechanism in Cleaner
+function Cleaner.IsLocked(Object)
+    if (VALIDATE_METHOD_PARAMS) then
+        IsLockedParams(Object)
+    end
+
+    return getmetatable(Object) == OBJECT_FINALIZED_MT
+end
+Cleaner.isLocked = Cleaner.IsLocked
+
+local CustomMethodParams = TypeGuard.Params(TypeGuard.Object(), TypeGuard.String())
+-- Creates an object which signals for a Cleaner to call an arbitrary method name with a set of params
+function Cleaner.CustomMethod(Object, Name, ...)
+    if (VALIDATE_METHOD_PARAMS) then
+        CustomMethodParams(Object, Name)
+    end
+
+    return {
+        _Args = {...};
+        IsCustomMethod = true;
+
+        Destroy = function(self)
+            Object[Name](Object, unpack(self._Args))
+        end;
+    };
+end
+
+return Cleaner]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb86</UniqueId>
+			</Properties>
+			<Item class="ModuleScript" referent="7">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">init.spec</string>
+					<string name="ScriptGuid">{A7A16E5E-A678-4B1B-99CF-72D9DCE5FF41}</string>
+					<ProtectedString name="Source"><![CDATA[return function()
+    local Cleaner = require(script.Parent)
+
+    local function GetTestClass()
+        local TestClass = {}
+        TestClass.__index = TestClass
+
+        function TestClass.new()
+            return setmetatable({}, TestClass)
+        end
+
+        function TestClass:Destroy() end
+
+        return TestClass
+    end
+
+    describe("Cleaner.new", function()
+        it("should create a new Cleaner", function()
+            expect(Cleaner.new()).never.to.equal(nil)
+            expect(Cleaner.new()).to.be.a("table")
+        end)
+    end)
+
+    describe("Cleaner.Add", function()
+        it("should reject invalid objects", function()
+            expect(function() -- Number
+                Cleaner.new():Add(1)
+            end).to.throw()
+
+            expect(function() -- String
+                Cleaner.new():Add("test")
+            end).to.throw()
+
+            expect(function() -- Empty/unsupported object
+                Cleaner.new():Add({})
+            end).to.throw()
+        end)
+
+        it("should accept only valid CleanableObjects", function()
+            expect(function() -- Instance
+                Cleaner.new():Add(Instance.new("Part"))
+            end).never.to.throw()
+
+            expect(function() -- Inbuilt Signal connection
+                local Connection = game.ChildAdded:Connect(function() end)
+                Cleaner.new():Add(Connection)
+                Connection:Disconnect()
+            end).never.to.throw()
+
+            expect(function() -- Cleaner
+                Cleaner.new():Add(Cleaner.new())
+            end).never.to.throw()
+
+            expect(function() -- Coroutine
+                Cleaner.new():Add(coroutine.running())
+            end).never.to.throw()
+
+            expect(function() -- Function
+                Cleaner.new():Add(function() end)
+            end).never.to.throw()
+
+            expect(function() -- Custom object
+                Cleaner.new():Add({
+                    Destroy = function() end;
+                })
+            end).never.to.throw()
+
+            expect(function() -- Custom Signal implementation
+                Cleaner.new():Add({
+                    Disconnect = function() end;
+                })
+            end).never.to.throw()
+        end)
+
+        it("should accept multiple CleanableObjects as args", function()
+            expect(function()
+                Cleaner.new():Add({
+                    Destroy = function() end;
+                }, {
+                    Disconnect = function() end;
+                })
+            end).never.to.throw()
+        end)
+
+        it("should reject when Cleaner is passed itself", function()
+            local Test = Cleaner.new()
+
+            expect(function()
+                Test:Add(Test)
+            end).to.throw()
+
+            expect(function()
+                Test:Add({Test})
+            end).to.throw()
+
+            expect(function()
+                Test:Add({game, Test})
+            end).to.throw()
+        end)
+    end)
+
+    describe("Cleaner.Clean", function()
+        it("should destroy Instances", function()
+            local Part = Instance.new("Part")
+            Part.Parent = game:GetService("Workspace")
+
+            local Test = Cleaner.new()
+            Test:Add(Part)
+            Test:Clean()
+
+            expect(Part.Parent).to.equal(nil)
+        end)
+
+        it("should clean up script signal connections", function()
+            local Part = Instance.new("Part")
+            local Activated = 0
+
+            local Test = Cleaner.new()
+            Test:Add(Part.ChildAdded:Connect(function()
+                Activated += 1
+            end))
+            Instance.new("Part", Part)
+            Test:Clean()
+            Instance.new("Part", Part)
+
+            expect(Activated).to.equal(1)
+        end)
+
+        it("should clean up other cleaners", function()
+            local Cleaned = false
+
+            local Test1 = Cleaner.new()
+                local Test2 = Cleaner.new()
+                Test2:Add(function()
+                    Cleaned = true
+                end)
+            Test1:Add(Test2)
+            Test1:Clean()
+
+            expect(Cleaned).to.equal(true)
+        end)
+
+        it("should close coroutines", function()
+            local Closed = true
+            local Running
+
+            task.spawn(function()
+                Running = coroutine.running()
+                task.wait()
+                Closed = false
+            end)
+
+            local Test = Cleaner.new()
+            Test:Add(Running)
+            Test:Clean()
+
+            task.wait()
+            expect(Closed).to.equal(true)
+        end)
+
+        --[[ it("should run functions async", function()
+            local Count = 0
+
+            local Test = Cleaner.new()
+
+            for _ = 1, 5 do
+                Test:Add(function()
+                    Count += 1
+                end)
+            end
+
+            for _ = 1, 5 do
+                Test:Add(function()
+                    task.wait(1)
+                    Count += 1
+                end)
+            end
+
+            local Time = os.clock()
+            Test:Clean()
+            expect(os.clock() - Time).to.be.near(0, 1/1000)
+            expect(Count).to.equal(5)
+        end) ]]
+
+        it("should call Destroy on custom objects", function()
+            local Test = Cleaner.new()
+            local Destroyed = false
+
+            Test:Add({
+                Destroy = function()
+                    Destroyed = true
+                end;
+            })
+
+            expect(Destroyed).to.equal(false)
+            Test:Clean()
+            expect(Destroyed).to.equal(true)
+        end)
+
+        it("should call Disconnect on custom signals", function()
+            local Test = Cleaner.new()
+            local Disconnected = false
+
+            Test:Add({
+                Disconnect = function()
+                    Disconnected = true
+                end;
+            })
+
+            expect(Disconnected).to.equal(false)
+            Test:Clean()
+            expect(Disconnected).to.equal(true)
+        end)
+
+        it("should clean up with custom method support", function()
+            local Test = Cleaner.new()
+            local DidRun = false
+
+            local Object = {
+                Test = function(_, X, Y, Z)
+                    expect(X).to.equal(1)
+                    expect(Y).to.equal(2)
+                    expect(Z).to.equal(3)
+
+                    DidRun = true
+                end
+            }
+            Test:Add(Test.CustomMethod(Object, "Test", 1, 2, 3))
+            Test:Clean()
+
+            expect(DidRun).to.equal(true)
+        end)
+    end)
+
+    describe("Cleaner.Add, Cleaner.Clean", function()
+        it("should automatically clean for items added after", function()
+            local Test = Cleaner.new()
+            local Count = 0
+
+            Test:Add({
+                Disconnect = function()
+                    Count += 1
+                end;
+            })
+
+            Test:Clean()
+
+            Test:Add({
+                Disconnect = function()
+                    Count += 1
+                end;
+            })
+
+            expect(Count).to.equal(2)
+        end)
+    end)
+
+    describe("Cleaner.Spawn", function()
+        it("should spawn a function async", function()
+            local Complete = false
+
+            Cleaner.new():Spawn(function()
+                Complete = true
+            end)
+
+            expect(Complete).to.equal(true)
+        end)
+
+        it("should terminate the spawned coroutine when Clean is called", function()
+            local Test = Cleaner.new()
+            local Complete = false
+
+            Test:Spawn(function()
+                task.wait()
+                Complete = true
+            end)
+            Test:Clean()
+
+            task.wait()
+            expect(Complete).to.equal(false)
+        end)
+    end)
+
+    describe("Cleaner.Lock", function()
+        it("should throw with no object given", function()
+            expect(function()
+                Cleaner.Lock()
+            end).to.throw()
+        end)
+
+        it("should accept an object", function()
+            expect(function()
+                Cleaner.Lock({})
+            end).never.to.throw()
+        end)
+
+        it("should disallow reads on an object", function()
+            local Object = {
+                X = 1;
+            }
+
+            Cleaner.Lock(Object)
+
+            expect(function()
+                local Temp1 = Object.X
+            end).to.throw()
+
+            expect(function()
+                local Temp2 = Object.Y
+            end).to.throw()
+        end)
+
+        it("should disallow writes on an object", function()
+            local Object = {
+                X = 1;
+            }
+
+            Cleaner.Lock(Object)
+
+            expect(function()
+                Object.X = 2
+            end).to.throw()
+
+            expect(function()
+                Object.Y = 3
+            end).to.throw()
+        end)
+    end)
+
+    describe("Cleaner.Wrap", function()
+        it("should throw with no class given", function()
+            expect(function()
+                Cleaner.Wrap()
+            end).to.throw()
+        end)
+
+        it("should throw with an invalid class given", function()
+            expect(function()
+                Cleaner.Wrap({
+                    new = function() end;
+                })
+            end).to.throw()
+
+            expect(function()
+                Cleaner.Wrap({
+                    __index = {}
+                })
+            end).to.throw()
+        end)
+
+        it("should accept a valid class", function()
+            local Test = GetTestClass()
+
+            expect(function()
+                Cleaner.Wrap(Test)
+            end).never.to.throw()
+        end)
+
+        it("should lock a destroyed object down", function()
+            local Test = GetTestClass()
+            Cleaner.Wrap(Test)
+
+            expect(function()
+                local Temp = Test.X
+            end).never.to.throw()
+
+            expect(function()
+                Test.Y = 1
+            end).never.to.throw()
+
+            Test:Destroy()
+
+            expect(function()
+                local Temp = Test.X
+            end).to.throw()
+
+            expect(function()
+                Test.Y = 2
+            end).to.throw()
+        end)
+
+        it("should prevent multiple wraps", function()
+            local Test = GetTestClass()
+            Cleaner.Wrap(Test)
+
+            expect(function()
+                Cleaner.Wrap(Test)
+            end).to.throw()
+        end)
+
+        it("should work without Destroy being initially present", function()
+            local Test1 = GetTestClass()
+            Cleaner.Wrap(Test1)
+            expect(Test1.Destroy).to.be.ok()
+
+            local Test2 = GetTestClass()
+            local Destroyed = false
+
+            function Test2:Destroy()
+                Destroyed = true
+            end
+
+            Cleaner.Wrap(Test2)
+            Test2.new():Destroy()
+            expect(Destroyed).to.equal(true)
+        end)
+    end)
+
+    describe("Cleaner.Wrap, Cleaner.IsWrapped", function()
+        it("should detect when a class is wrapped", function()
+            local Test = GetTestClass()
+            expect(Cleaner.IsWrapped(Test)).to.equal(false)
+            Cleaner.Wrap(Test)
+            expect(Cleaner.IsWrapped(Test)).to.equal(true)
+        end)
+    end)
+end]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb87</UniqueId>
+				</Properties>
+			</Item>
+		</Item>
 	</Item>
-	<Item class="TweenService" referent="RBX333C840E7CE94E5A811DFB4CCAD676D7">
+	<Item class="TweenService" referent="RBX52AF9F49D66243E3BB6C206F2E7F4FDD">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">TweenService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fae4</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fae4</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="MaterialService" referent="RBX3BC9BBD4806E40178ABEDE80F3D9FFF3">
+	<Item class="MaterialService" referent="RBXA2523DF42294427B9EEE2D1C995F4528">
 		<Properties>
 			<string name="AsphaltName">Asphalt</string>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -5056,13 +5056,13 @@ end]]></ProtectedString>
 			<string name="SnowName">Snow</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fae5</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fae5</UniqueId>
 			<bool name="Use2022MaterialsXml">false</bool>
 			<string name="WoodName">Wood</string>
 			<string name="WoodPlanksName">WoodPlanks</string>
 		</Properties>
 	</Item>
-	<Item class="TextChatService" referent="RBX18C40E521A6F48C3875F5E9C49259510">
+	<Item class="TextChatService" referent="RBX1120B4659C024C96AA880AAABAC4E23E">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<token name="ChatVersion">0</token>
@@ -5071,19 +5071,19 @@ end]]></ProtectedString>
 			<string name="Name">TextChatService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fae6</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fae6</UniqueId>
 		</Properties>
-		<Item class="ChatWindowConfiguration" referent="RBX40A0EC1AA7DD448091322396738E6A1B">
+		<Item class="ChatWindowConfiguration" referent="RBXB9037D140E1844A7BBF66186D08A83B3">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Enabled">true</bool>
 				<string name="Name">ChatWindowConfiguration</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb8b</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb8b</UniqueId>
 			</Properties>
 		</Item>
-		<Item class="ChatInputBarConfiguration" referent="RBX9229E3A37E544F8FA306D749088FB5A8">
+		<Item class="ChatInputBarConfiguration" referent="RBX6976745CD7F74E9A9A57776E2847DB7D">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Enabled">true</bool>
@@ -5091,20 +5091,20 @@ end]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 				<Ref name="TargetTextChannel">null</Ref>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb8c</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb8c</UniqueId>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="PermissionsService" referent="RBX762C6D90E1A84171A56AA386334BFE87">
+	<Item class="PermissionsService" referent="RBX15E533DDB0344F15972051106925B280">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">PermissionsService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faea</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faea</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="PlayerEmulatorService" referent="RBX0E2F9E6206D5422EA06EA60C01A0E112">
+	<Item class="PlayerEmulatorService" referent="RBXA971F77667C8408FB4E6A55008E0362D">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="CustomPoliciesEnabled">false</bool>
@@ -5115,10 +5115,10 @@ end]]></ProtectedString>
 			<BinaryString name="SerializedEmulatedPolicyInfo"></BinaryString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faec</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faec</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="StudioData" referent="RBX3F9AA6935A564CF890E4979956944E2B">
+	<Item class="StudioData" referent="RBX012BE4CAB6FA4BC3BDE63DEB49A94D96">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<int64 name="CommitInflightAuthorId">0</int64>
@@ -5130,10 +5130,10 @@ end]]></ProtectedString>
 			<int64 name="SrcPlaceId">0</int64>
 			<int64 name="SrcUniverseId">0</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faef</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faef</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="StarterPlayer" referent="RBX36ED7D395B724D119FD019627DFA94CF">
+	<Item class="StarterPlayer" referent="RBX71974CFE46A14EF587E8DD950B4F8074">
 		<Properties>
 			<bool name="AllowCustomAnimations">true</bool>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -5176,38 +5176,38 @@ end]]></ProtectedString>
 			<float name="NameDisplayDistance">100</float>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faf0</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faf0</UniqueId>
 			<bool name="UserEmotesEnabled">true</bool>
 		</Properties>
-		<Item class="StarterPlayerScripts" referent="RBX38F29B6843294E3FA4BBC49AC6B739F8">
+		<Item class="StarterPlayerScripts" referent="RBX1EB6A4DE6B68461E928596DEB2505DA0">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">StarterPlayerScripts</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb89</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb89</UniqueId>
 			</Properties>
 		</Item>
-		<Item class="StarterCharacterScripts" referent="RBX2DCD3EFA3D7C4C419F55FE4F65F8612E">
+		<Item class="StarterCharacterScripts" referent="RBXADA1752044FF41C0BD163C6C499B9206">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">StarterCharacterScripts</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb8a</UniqueId>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb8a</UniqueId>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="StarterPack" referent="RBXA051E253950D41CA80E4D3737E1F64DB">
+	<Item class="StarterPack" referent="RBX4257E983226249EBB62684AC076686A3">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">StarterPack</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faf1</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faf1</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="StarterGui" referent="RBXBCCBE1675AE34350A61839B60F651070">
+	<Item class="StarterGui" referent="RBX654D6A658D434126BCBD7DD71C5B17F8">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">StarterGui</string>
@@ -5216,56 +5216,56 @@ end]]></ProtectedString>
 			<bool name="ShowDevelopmentGui">true</bool>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faf2</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faf2</UniqueId>
 			<token name="VirtualCursorMode">0</token>
 		</Properties>
 	</Item>
-	<Item class="LocalizationService" referent="RBXC347F1D2837247189B86E0A86F440605">
+	<Item class="LocalizationService" referent="RBX33D3F594467B4731B926EA7378957722">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">LocalizationService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faf4</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faf4</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="TeleportService" referent="RBX338AE9248E384E2F9C879CF147F99138">
+	<Item class="TeleportService" referent="RBXBB2FF572BD9544DDAB92808F09616E1A">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Teleport Service</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faf8</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faf8</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="CollectionService" referent="RBX4CDACA5D245344CDB471374B1B918119">
+	<Item class="CollectionService" referent="RBXC79B5A8B95BA474AA98940AA780B4722">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CollectionService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fafa</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fafa</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="PhysicsService" referent="RBX6324D67A522144E296C1C03ABFB5BEDE">
+	<Item class="PhysicsService" referent="RBXB1128FFBA24A404F97C6E9BD8D00F95C">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">PhysicsService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fafb</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fafb</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Geometry" referent="RBXB479A08205C74D1598F5E032CC45FAC2">
+	<Item class="Geometry" referent="RBX3CC900B55EE046F4925D0EB76BF2CDA1">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Geometry</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fafd</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fafd</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="InsertService" referent="RBX6ECA78EC16134884B610F06920D7E3B3">
+	<Item class="InsertService" referent="RBX338A4745352E4F2692C8FF779933E89D">
 		<Properties>
 			<bool name="AllowClientInsertModels">false</bool>
 			<bool name="AllowInsertFreeModels">false</bool>
@@ -5273,158 +5273,158 @@ end]]></ProtectedString>
 			<string name="Name">InsertService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001faff</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001faff</UniqueId>
 		</Properties>
-		<Item class="StringValue" referent="RBXBD6E4426BD2C4DAFB88C23D66D0C6361">
+		<Item class="StringValue" referent="RBXC17952B1F8F144D3BB804BFE70C8AF6F">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">InsertionHash</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">7746134b1484640102c618cd0002c4fd</UniqueId>
-				<string name="Value">{9E67F272-B6E1-417B-A7E7-103694B2E8B5}</string>
+				<UniqueId name="UniqueId">61b6083d4536598502c810d30002c57b</UniqueId>
+				<string name="Value">{4AA152D1-484D-4C6F-8327-9EC93058C22A}</string>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="GamePassService" referent="RBX91C5CA031B96428EB968A18E96757046">
+	<Item class="GamePassService" referent="RBXA3F84BDFA5E240DFADA1C4CD57EE8165">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">GamePassService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb00</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb00</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Debris" referent="RBX86634324813B4EEB83A024749192F808">
+	<Item class="Debris" referent="RBX239D6F6B83794360865E76FDE60F3C13">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<int name="MaxItems">1000</int>
 			<string name="Name">Debris</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb01</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb01</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="CookiesService" referent="RBX0F8B10DC8289444F9B27D1B6D27A321B">
+	<Item class="CookiesService" referent="RBXBA5A7440DB13497B93A4C8EA1C9BAC67">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CookiesService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb02</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb02</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="VRService" referent="RBX714DD9FF531F4E04A2688AEDF8EA76A7">
+	<Item class="VRService" referent="RBX6705A09B7D5B4998A6911E765840F0D1">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">VRService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb0c</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb0c</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ContextActionService" referent="RBX2AD7F2935D464B47A88E873101727EE1">
+	<Item class="ContextActionService" referent="RBX2E3AA75778494ABF92CA05088E0149BB">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ContextActionService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb0e</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb0e</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ScriptService" referent="RBX62DA46C567C8451F8676C068CA9E318E">
+	<Item class="ScriptService" referent="RBXE851924B34864D7397F0D0E066955B18">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb10</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb10</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="AssetService" referent="RBXE49116E4F5434688B93F99DDCAAC1CE4">
+	<Item class="AssetService" referent="RBX6D022CAE341C4B598FAB2AA2D89CA31F">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">AssetService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb11</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb11</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="TouchInputService" referent="RBXA88057CF8FC34E6688D474FFC3868120">
+	<Item class="TouchInputService" referent="RBXBC5CF7B0FED8462EA303635B0C554D20">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">TouchInputService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb12</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb12</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="AnalyticsService" referent="RBX027E8E16736F44FEA73509C83043BCAC">
+	<Item class="AnalyticsService" referent="RBX6211C66C3925442FB2EC80C3B99FC17B">
 		<Properties>
 			<string name="ApiKey"></string>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">AnalyticsService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb15</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb15</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Selection" referent="RBX2BE7A944CE7948A3AD5E627E42B8C001">
+	<Item class="Selection" referent="RBXAA3E392371334636B9434E4F318C0671">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Selection</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb18</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb18</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ServerScriptService" referent="RBX01BA1F296CB64693A7293A56F2AF6D2E">
+	<Item class="ServerScriptService" referent="RBX489E1B1942FC423798456067AD22EEAB">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="LoadStringEnabled">false</bool>
 			<string name="Name">ServerScriptService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb1a</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb1a</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ServerStorage" referent="RBX0C4456524C684C3BB47B3B87395C6538">
+	<Item class="ServerStorage" referent="RBX0D9CAF2F7AF544EEB26BAA64B1BF51D3">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ServerStorage</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb1b</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb1b</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ReplicatedStorage" referent="RBX24816D2DD41E469EA5A6FD787B0B8286">
+	<Item class="ReplicatedStorage" referent="RBX060DE85476C740AB92205D64C48C92FB">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ReplicatedStorage</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb1c</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb1c</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="LuaWebService" referent="RBXE1C867F4328E485F9D71CC77EDFC25D5">
+	<Item class="LuaWebService" referent="RBXC6EA24C8F65346DA9B7A23ACCBF5A77D">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb23</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb23</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ProcessInstancePhysicsService" referent="RBX1455AFC2BCEC4734994172E997FA6598">
+	<Item class="ProcessInstancePhysicsService" referent="RBX9C9BED8810B347CBA8118659D56F3D27">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ProcessInstancePhysicsService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb24</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb24</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Lighting" referent="RBX0F09CC8AF20846568B4F3E1914D1B3A6">
+	<Item class="Lighting" referent="RBX3CBBA884122D46809A26938231CB5A06">
 		<Properties>
 			<Color3 name="Ambient">
 				<R>0.5</R>
@@ -5467,56 +5467,56 @@ end]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 			<token name="Technology">2</token>
 			<string name="TimeOfDay">14:00:00</string>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb50</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb50</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="LodDataService" referent="RBXAA6E05FAAEB648BA9BAFAD2381E059B3">
+	<Item class="LodDataService" referent="RBX2F5CA0DBC0C847F6818DD154579BCF7E">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0001fb53</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30001fb53</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="HttpService" referent="RBX31FABAB10B3445ECBC9B46667A29008C">
+	<Item class="HttpService" referent="RBX9E22C6B44FC14D2D9806CDAB678B7AA4">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="HttpEnabled">false</bool>
 			<string name="Name">HttpService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd00028c38</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d300027400</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="Teams" referent="RBXDED2EDB77381433B9350B2B37580FF62">
+	<Item class="Teams" referent="RBX077A493261EC4251A6C58D099DCE875C">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Teams</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0002b3b5</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30002b3b5</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="VirtualInputManager" referent="RBX2EA7EB9CF6814F8EBCB409A3566AB8C1">
+	<Item class="VirtualInputManager" referent="RBX0B809F24F7E448CBB08AE268F39904B7">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">VirtualInputManager</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0002b3d3</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30002b3d3</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="LanguageService" referent="RBX4506A02A1FC9482FBDA77C9226069A27">
+	<Item class="LanguageService" referent="RBX4F1B843162B2452E9B3B1BB0E0006F3A">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">LanguageService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0002b60e</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30002b60e</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="ProximityPromptService" referent="RBXBEBA754EABAC4349B1A222ADE2B30889">
+	<Item class="ProximityPromptService" referent="RBX4D591D0616E041E69C0AB18A7246B854">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="Enabled">true</bool>
@@ -5524,10 +5524,10 @@ end]]></ProtectedString>
 			<string name="Name">ProximityPromptService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0002b743</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30002b6a2</UniqueId>
 		</Properties>
 	</Item>
-	<Item class="TestService" referent="RBX7FEB78FF623C4C2BB531FDE0C2EE5DFA">
+	<Item class="TestService" referent="RBX916BE9D40C874F4191DAE707EEC898EC">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="AutoRuns">true</bool>
@@ -5542,7 +5542,7 @@ end]]></ProtectedString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 			<double name="Timeout">10</double>
-			<UniqueId name="UniqueId">7746134b1484640102c618cd0002c51c</UniqueId>
+			<UniqueId name="UniqueId">61b6083d4536598502c810d30002c52f</UniqueId>
 		</Properties>
 	</Item>
 	<SharedStrings>

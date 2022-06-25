@@ -63,7 +63,7 @@ local SupportedCleanables = {}
 SupportedCleanables[TYPE_TABLE] = function(Item)
     local IsLocked = Cleaner.IsLocked
 
-    for _, MethodName in ipairs(SUPPORTED_OBJECT_METHODS) do
+    for _, MethodName in SUPPORTED_OBJECT_METHODS do
         if (IsLocked(Item)) then
             break
         end
@@ -149,7 +149,7 @@ Cleaner.add = Cleaner.Add
 function Cleaner:Clean()
     local CleanList = self._CleanList
 
-    for Index, Item in ipairs(CleanList) do
+    for Index, Item in CleanList do
         SupportedCleanables[typeof(Item)](Item)
         CleanList[Index] = nil
     end
@@ -209,7 +209,7 @@ function Cleaner.Lock(Object)
     end
 
     -- Have to "nil" everything to ensure the __index error works
-    for Key in pairs(Object) do
+    for Key in Object do
         Object[Key] = nil
     end
 
