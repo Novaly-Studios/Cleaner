@@ -1,3 +1,8 @@
+local function anyfn(...) return ({} :: any) end
+it = it or anyfn
+expect = expect or anyfn
+describe = describe or anyfn
+
 return function()
     local Cleaner = require(script.Parent)
 

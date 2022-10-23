@@ -1,3 +1,10 @@
+---!nonstrict
+
+-- Allows easy command bar paste:
+if (not script) then
+    script = game:GetService("ReplicatedFirst").Cleaner
+end
+
 local TypeGuard = require(script.Parent:WaitForChild("TypeGuard"))
 
 local ValidClass = TypeGuard.Object():OfStructure({
@@ -6,21 +13,45 @@ local ValidClass = TypeGuard.Object():OfStructure({
     new = TypeGuard.Function();
 })
 
+type ValidClass = {
+    __index: ValidClass;
+    Destroy: (() -> ());
+    new: ((...any) -> any);
+
+    _CLEANER_WRAPPED: boolean?;
+}
+
 local CleanerType = TypeGuard.Object():OfStructure({
     IsCleaner = TypeGuard.Boolean();
 })
+
+type CleanerType = {
+    IsCleaner: true;
+}
 
 local DestroyableType = TypeGuard.Object():OfStructure({
     Destroy = TypeGuard.Function();
 })
 
+type DestroyableType = {
+    Destroy: () -> ();
+}
+
 local CustomSignalType = TypeGuard.Object():OfStructure({
     Disconnect = TypeGuard.Function();
 })
 
+type CustomSignalType = {
+    Disconnect: () -> ();
+}
+
 local CustomMethodType = TypeGuard.Object():OfStructure({
     IsCustomMethod = TypeGuard.Boolean();
 })
+
+type CustomMethodType = {
+    IsCustomMethod: true;
+}
 
 local CleanableType = TypeGuard.Instance()
                         :Or(TypeGuard.Function())
@@ -32,6 +63,16 @@ local CleanableType = TypeGuard.Instance()
                         :Or(DestroyableType)
                         :Or(CustomSignalType)
                         :Or(CustomMethodType)
+
+export type Cleaner = {
+    AddContext: ((Cleaner) -> (Cleaner));
+    Clean: ((Cleaner) -> (Cleaner));
+    Spawn: ((Cleaner, Callback: ((...any) -> ())) -> Cleaner);
+    Delay: ((Cleaner, Time: number, ((...any) -> ())) -> Cleaner);
+    Add: ((Cleaner, ...CleanableType) -> (Cleaner));
+}
+
+type CleanableType = Instance | (() -> ()) | RBXScriptConnection | DestroyableType | CustomSignalType | CustomMethodType | Cleaner | thread
 
 local VALIDATE_METHOD_PARAMS = true
 local VALIDATE_CLEANABLES = true
@@ -56,6 +97,17 @@ local SUPPORTED_OBJECT_METHODS = {"Disconnect", "Destroy", "Clean"}
 --- New object & utility functions for handling the lifecycles of Lua objects, aims to help prevent memory leaks
 local Cleaner = {}
 Cleaner.__index = Cleaner
+
+local IsLockedParams = TypeGuard.Params(TypeGuard.Object())
+-- Determines if an object is locked via the mechanism in Cleaner
+function Cleaner.IsLocked(Object): boolean
+    if (VALIDATE_METHOD_PARAMS) then
+        IsLockedParams(Object)
+    end
+
+    return getmetatable(Object) == OBJECT_FINALIZED_MT
+end
+Cleaner.isLocked = Cleaner.IsLocked
 
 -- Any extra implementations go here
 local SupportedCleanables = {}
@@ -96,16 +148,18 @@ SupportedCleanables[TYPE_INSTANCE] = function(Item)
     Item:Destroy()
 end
 
-function Cleaner.new()
-    return setmetatable({
+function Cleaner.new(): Cleaner
+    local self = setmetatable({
         IsCleaner = true;
         _DidClean = false;
         _CleanList = {};
         _Index = 1;
     }, Cleaner)
+
+    return self
 end
 
-local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
+local AddParams = TypeGuard.VariadicWithContext(CleanableType)
 --- Adds an object to this Cleaner. Object must be one of the following:
 --- - Cleaner
 --- - Function
@@ -117,7 +171,7 @@ local AddParams = TypeGuard.VariadicParamsWithContext(CleanableType)
 ---   - Object:Clean()
 ---   - Object:Destroy()
 ---   - Object:Disconnect()
-function Cleaner:Add(...): typeof(Cleaner)
+function Cleaner:Add(...)
     if (VALIDATE_CLEANABLES) then
         AddParams(self, ...)
     end
@@ -156,11 +210,13 @@ function Cleaner:Clean()
 
     self._Index = 1
     self._DidClean = true
+
+    return self
 end
 Cleaner.clean = Cleaner.Clean
 
 --- Adds whatever coroutine called this method to the Cleaner
-function Cleaner:AddContext(): typeof(Cleaner)
+function Cleaner:AddContext()
     return self:Add(coroutine.running())
 end
 Cleaner.addContext = Cleaner.AddContext
@@ -172,7 +228,7 @@ end
 
 local SpawnParams = TypeGuard.Params(TypeGuard.Function())
 --- Spawns a coroutine & adds to the Cleaner
-function Cleaner:Spawn(Callback, ...): typeof(Cleaner)
+function Cleaner:Spawn(Callback, ...)
     if (VALIDATE_METHOD_PARAMS) then
         SpawnParams(Callback)
     end
@@ -189,7 +245,7 @@ end
 
 local DelayParams = TypeGuard.Params(TypeGuard.Number(), TypeGuard.Function())
 --- Delays a spawned coroutine & adds to cleaner
-function Cleaner:Delay(Time, Callback, ...): typeof(Cleaner)
+function Cleaner:Delay(Time, Callback, ...)
     if (VALIDATE_METHOD_PARAMS) then
         DelayParams(Time, Callback)
     end
@@ -203,7 +259,7 @@ Cleaner.delay = Cleaner.Delay
 
 local LockParams = TypeGuard.Params(TypeGuard.Object())
 --- Permanently locks down an object once finished
-function Cleaner.Lock(Object)
+function Cleaner.Lock(Object: any)
     if (VALIDATE_METHOD_PARAMS) then
         LockParams(Object)
     end
@@ -216,10 +272,22 @@ function Cleaner.Lock(Object)
     setmetatable(Object, OBJECT_FINALIZED_MT)
     table.freeze(Object)
 end
+Cleaner.lock = Cleaner.Lock
+
+local IsWrappedParams = TypeGuard.Params(ValidClass)
+--- Determines if a class is already wrapped
+function Cleaner.IsWrapped(Class: ValidClass): boolean
+    if (VALIDATE_METHOD_PARAMS) then
+        IsWrappedParams(Class)
+    end
+
+    return Class._CLEANER_WRAPPED ~= nil
+end
+Cleaner.isWrapped = Cleaner.IsWrapped
 
 local WrapParams = TypeGuard.Params(ValidClass)
 --- Wraps the class to ensure more lifecycle safety, including auto-lock on Destroy
-function Cleaner.Wrap(Class)
+function Cleaner.Wrap(Class: ValidClass): ValidClass
     if (VALIDATE_METHOD_PARAMS) then
         WrapParams(Class)
         assert(not Cleaner.IsWrapped(Class), ERR_CLASS_ALREADY_WRAPPED)
@@ -238,31 +306,9 @@ function Cleaner.Wrap(Class)
 end
 Cleaner.wrap = Cleaner.Wrap
 
-local IsWrappedParams = TypeGuard.Params(ValidClass)
---- Determines if a class is already wrapped
-function Cleaner.IsWrapped(Class)
-    if (VALIDATE_METHOD_PARAMS) then
-        IsWrappedParams(Class)
-    end
-
-    return Class._CLEANER_WRAPPED ~= nil
-end
-Cleaner.isWrapped = Cleaner.IsWrapped
-
-local IsLockedParams = TypeGuard.Params(TypeGuard.Object())
--- Determines if an object is locked via the mechanism in Cleaner
-function Cleaner.IsLocked(Object)
-    if (VALIDATE_METHOD_PARAMS) then
-        IsLockedParams(Object)
-    end
-
-    return getmetatable(Object) == OBJECT_FINALIZED_MT
-end
-Cleaner.isLocked = Cleaner.IsLocked
-
 local CustomMethodParams = TypeGuard.Params(TypeGuard.Object(), TypeGuard.String())
 -- Creates an object which signals for a Cleaner to call an arbitrary method name with a set of params
-function Cleaner.CustomMethod(Object, Name, ...)
+function Cleaner.CustomMethod(Object: any, Name: string, ...: any): CustomMethodType
     if (VALIDATE_METHOD_PARAMS) then
         CustomMethodParams(Object, Name)
     end
@@ -276,5 +322,6 @@ function Cleaner.CustomMethod(Object, Name, ...)
         end;
     };
 end
+Cleaner.customMethod = Cleaner.CustomMethod
 
 return Cleaner
