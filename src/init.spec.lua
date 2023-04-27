@@ -1,3 +1,5 @@
+local Workspace = game:GetService("Workspace")
+
 local function anyfn(...) return ({} :: any) end
 it = it or anyfn
 expect = expect or anyfn
@@ -5,19 +7,6 @@ describe = describe or anyfn
 
 return function()
     local Cleaner = require(script.Parent)
-
-    local function GetTestClass()
-        local TestClass = {}
-        TestClass.__index = TestClass
-
-        function TestClass.new()
-            return setmetatable({}, TestClass)
-        end
-
-        function TestClass:Destroy() end
-
-        return TestClass
-    end
 
     describe("Cleaner.new", function()
         it("should create a new Cleaner", function()
@@ -107,7 +96,7 @@ return function()
     describe("Cleaner.Clean", function()
         it("should destroy Instances", function()
             local Part = Instance.new("Part")
-            Part.Parent = game:GetService("Workspace")
+            Part.Parent = Workspace
 
             local Test = Cleaner.new()
             Test:Add(Part)
@@ -216,25 +205,6 @@ return function()
             Test:Clean()
             expect(Disconnected).to.equal(true)
         end)
-
-        it("should clean up with custom method support", function()
-            local Test = Cleaner.new()
-            local DidRun = false
-
-            local Object = {
-                Test = function(_, X, Y, Z)
-                    expect(X).to.equal(1)
-                    expect(Y).to.equal(2)
-                    expect(Z).to.equal(3)
-
-                    DidRun = true
-                end
-            }
-            Test:Add(Test.CustomMethod(Object, "Test", 1, 2, 3))
-            Test:Clean()
-
-            expect(DidRun).to.equal(true)
-        end)
     end)
 
     describe("Cleaner.Add, Cleaner.Clean", function()
@@ -260,163 +230,211 @@ return function()
         end)
     end)
 
-    describe("Cleaner.Spawn", function()
-        it("should spawn a function async", function()
-            local Complete = false
+    describe("Cleaner.Remove", function()
+        it("should accept valid CleanableObjects", function()
+            expect(function()
+                Cleaner.new():Remove(function() end)
+            end).never.to.throw()
 
-            Cleaner.new():Spawn(function()
-                Complete = true
-            end)
-
-            expect(Complete).to.equal(true)
+            expect(function()
+                Cleaner.new():Remove(1)
+            end).to.throw()
         end)
 
-        it("should terminate the spawned coroutine when Clean is called", function()
+        it("should remove a CleanableObject", function()
             local Test = Cleaner.new()
-            local Complete = false
+            local Called = false
 
-            Test:Spawn(function()
-                task.wait()
-                Complete = true
-            end)
-            Test:Clean()
-
-            task.wait()
-            expect(Complete).to.equal(false)
-        end)
-    end)
-
-    describe("Cleaner.Lock", function()
-        it("should throw with no object given", function()
-            expect(function()
-                Cleaner.Lock()
-            end).to.throw()
-        end)
-
-        it("should accept an object", function()
-            expect(function()
-                Cleaner.Lock({})
-            end).never.to.throw()
-        end)
-
-        it("should disallow reads on an object", function()
-            local Object = {
-                X = 1;
-            }
-
-            Cleaner.Lock(Object)
-
-            expect(function()
-                local Temp1 = Object.X
-            end).to.throw()
-
-            expect(function()
-                local Temp2 = Object.Y
-            end).to.throw()
-        end)
-
-        it("should disallow writes on an object", function()
-            local Object = {
-                X = 1;
-            }
-
-            Cleaner.Lock(Object)
-
-            expect(function()
-                Object.X = 2
-            end).to.throw()
-
-            expect(function()
-                Object.Y = 3
-            end).to.throw()
-        end)
-    end)
-
-    describe("Cleaner.Wrap", function()
-        it("should throw with no class given", function()
-            expect(function()
-                Cleaner.Wrap()
-            end).to.throw()
-        end)
-
-        it("should throw with an invalid class given", function()
-            expect(function()
-                Cleaner.Wrap({
-                    new = function() end;
-                })
-            end).to.throw()
-
-            expect(function()
-                Cleaner.Wrap({
-                    __index = {}
-                })
-            end).to.throw()
-        end)
-
-        it("should accept a valid class", function()
-            local Test = GetTestClass()
-
-            expect(function()
-                Cleaner.Wrap(Test)
-            end).never.to.throw()
-        end)
-
-        it("should lock a destroyed object down", function()
-            local Test = GetTestClass()
-            Cleaner.Wrap(Test)
-
-            expect(function()
-                local Temp = Test.X
-            end).never.to.throw()
-
-            expect(function()
-                Test.Y = 1
-            end).never.to.throw()
-
-            Test:Destroy()
-
-            expect(function()
-                local Temp = Test.X
-            end).to.throw()
-
-            expect(function()
-                Test.Y = 2
-            end).to.throw()
-        end)
-
-        it("should prevent multiple wraps", function()
-            local Test = GetTestClass()
-            Cleaner.Wrap(Test)
-
-            expect(function()
-                Cleaner.Wrap(Test)
-            end).to.throw()
-        end)
-
-        it("should work without Destroy being initially present", function()
-            local Test1 = GetTestClass()
-            Cleaner.Wrap(Test1)
-            expect(Test1.Destroy).to.be.ok()
-
-            local Test2 = GetTestClass()
-            local Destroyed = false
-
-            function Test2:Destroy()
-                Destroyed = true
+            local function TestFunc()
+                Called = true
             end
 
-            Cleaner.Wrap(Test2)
-            Test2.new():Destroy()
-            expect(Destroyed).to.equal(true)
+            Test:Add(TestFunc)
+            Test:Remove(TestFunc)
+            Test:Clean()
+            expect(Called).to.equal(false)
+        end)
+
+        it("should remove with variadic arguments", function()
+            local Test = Cleaner.new()
+            local Called = 0
+
+            local function TestFunc1()
+                Called += 1
+            end
+
+            local function TestFunc2()
+                Called += 1
+            end
+
+            Test:Add(TestFunc1, TestFunc2)
+            Test:Remove(TestFunc1, TestFunc2)
+            Test:Clean()
+            expect(Called).to.equal(0)
         end)
     end)
 
-    describe("Cleaner.Wrap, Cleaner.IsWrapped", function()
-        it("should detect when a class is wrapped", function()
-            local Test = GetTestClass()
-            expect(Cleaner.IsWrapped(Test)).to.equal(false)
-            Cleaner.Wrap(Test)
-            expect(Cleaner.IsWrapped(Test)).to.equal(true)
+    describe("Cleaner.Contains", function()
+        it("should accept valid CleanableObjects", function()
+            expect(function()
+                Cleaner.new():Contains(function() end)
+            end).never.to.throw()
+
+            expect(function()
+                Cleaner.new():Contains(1)
+            end).to.throw()
+        end)
+
+        it("should return true if the object is in the Cleaner", function()
+            local Test = Cleaner.new()
+            local TestFunc = function() end
+
+            Test:Add(TestFunc)
+            expect(Test:Contains(TestFunc)).to.equal(true)
+        end)
+
+        it("should return false if the object is not in the Cleaner", function()
+            local Test = Cleaner.new()
+            local TestFunc = function() end
+
+            expect(Test:Contains(TestFunc)).to.equal(false)
+        end)
+    end)
+
+    describe("Cleaner.BindToInstanceLifecycles", function()
+        it("should accept an Instance or array of Instances as the first arg and reject other arg types", function()
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(Instance.new("Part"))
+            end).never.to.throw()
+
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles({Instance.new("Part"), Instance.new("Part")})
+            end).never.to.throw()
+
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(1, function() end)
+            end).to.throw()
+        end)
+
+        it("accept an optional boolean as the second arg and reject non-booleans", function()
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(Instance.new("Part"), true)
+            end).never.to.throw()
+
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(Instance.new("Part"), 1)
+            end).to.throw()
+        end)
+
+        it("should accept an optional boolean as the third arg and reject non-booleans", function()
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(Instance.new("Part"), true, true)
+            end).never.to.throw()
+
+            expect(function()
+                local Test = Cleaner.new()
+                Test:BindToInstanceLifecycles(Instance.new("Part"), true, 1)
+            end).to.throw()
+        end)
+
+        it("should clean up when one bound Instance is destroyed, by default", function()
+            local Test = Cleaner.new()
+            local Part = Instance.new("Part")
+            local Count = 0
+
+            Test:BindToInstanceLifecycles(Part)
+            Test:Add(function()
+                Count += 1
+            end)
+
+            expect(Count).to.equal(0)
+            Part.Parent = nil
+            expect(Count).to.equal(0)
+            Part:Destroy()
+            expect(Count).to.equal(1)
+        end)
+
+        it("should clean up when multiple bound Instances are destroyed, by default", function()
+            local Test = Cleaner.new()
+            local Part1 = Instance.new("Part")
+            local Part2 = Instance.new("Part")
+            local Count = 0
+
+            Test:BindToInstanceLifecycles({Part1, Part2})
+            Test:Add(function()
+                Count += 1
+            end)
+
+            expect(Count).to.equal(0)
+            Part1.Parent = nil
+            expect(Count).to.equal(0)
+            Part2.Parent = nil
+            expect(Count).to.equal(0)
+            Part1:Destroy()
+            expect(Count).to.equal(0)
+            Part2:Destroy()
+            expect(Count).to.equal(1)
+        end)
+
+        it("should detect nil parent Instances if specified, instead of using the Destroyed event", function()
+            local Test = Cleaner.new()
+            local Part = Instance.new("Part")
+            Part.Parent = Workspace
+            local Count = 0
+
+            Test:BindToInstanceLifecycles(Part, true)
+            Test:Add(function()
+                Count += 1
+            end)
+
+            expect(Count).to.equal(0)
+            Part.Parent = nil
+            expect(Count).to.equal(1)
+            Part:Destroy()
+            expect(Count).to.equal(1)
+        end)
+
+        it("should clean when any of the given Instances are destroyed, if disjunctive is specified", function()
+            local Test = Cleaner.new()
+            local Count = 0
+
+            Test:Add(function()
+                Count += 1
+            end)
+
+            local Part1 = Instance.new("Part")
+            local Part2 = Instance.new("Part")
+            Test:BindToInstanceLifecycles({Part1, Part2}, nil, true)
+
+            expect(Count).to.equal(0)
+            Part1:Destroy()
+            expect(Count).to.equal(1)
+            Part2:Destroy()
+            expect(Count).to.equal(1)
+        end)
+        
+        it("should reject when the Cleaner has already cleaned", function()
+            local Test = Cleaner.new()
+            Test:Clean()
+
+            expect(function()
+                Test:BindToInstanceLifecycles(Instance.new("Part"))
+            end).to.throw()
+        end)
+
+        it("should reject when the Cleaner is already bound to something's lifecycle", function()
+            local Test = Cleaner.new()
+            Test:BindToInstanceLifecycles(Instance.new("Part"))
+            
+            expect(function()
+                Test:BindToInstanceLifecycles(Instance.new("Part"))
+            end).to.throw()
         end)
     end)
 end
