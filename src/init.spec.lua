@@ -114,8 +114,10 @@ return function()
                 Activated += 1
             end))
             Instance.new("Part", Part)
+            task.wait() -- Deferred signals are evil.
             Test:Clean()
             Instance.new("Part", Part)
+            task.wait()
 
             expect(Activated).to.equal(1)
         end)
@@ -208,7 +210,7 @@ return function()
     end)
 
     describe("Cleaner.Add, Cleaner.Clean", function()
-        it("should automatically clean for items added after", function()
+        it("should automatically clean for items added after Clean is called", function()
             local Test = Cleaner.new()
             local Count = 0
 
@@ -301,140 +303,130 @@ return function()
         end)
     end)
 
-    describe("Cleaner.BindToInstanceLifecycles", function()
+    describe("Cleaner.fromInstanceLifecycles", function()
         it("should accept an Instance or array of Instances as the first arg and reject other arg types", function()
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(Instance.new("Part"))
+                Cleaner.fromInstanceLifecycles(Instance.new("Part"))
             end).never.to.throw()
 
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles({Instance.new("Part"), Instance.new("Part")})
+                Cleaner.fromInstanceLifecycles({Instance.new("Part"), Instance.new("Part")})
             end).never.to.throw()
 
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(1, function() end)
+                Cleaner.fromInstanceLifecycles(1, function() end)
             end).to.throw()
         end)
 
         it("accept an optional boolean as the second arg and reject non-booleans", function()
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(Instance.new("Part"), true)
+                Cleaner.fromInstanceLifecycles(Instance.new("Part"), true)
             end).never.to.throw()
 
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(Instance.new("Part"), 1)
+                Cleaner.fromInstanceLifecycles(Instance.new("Part"), 1)
             end).to.throw()
         end)
 
         it("should accept an optional boolean as the third arg and reject non-booleans", function()
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(Instance.new("Part"), true, true)
+                Cleaner.fromInstanceLifecycles(Instance.new("Part"), true, true)
             end).never.to.throw()
 
             expect(function()
-                local Test = Cleaner.new()
-                Test:BindToInstanceLifecycles(Instance.new("Part"), true, 1)
+                Cleaner.fromInstanceLifecycles(Instance.new("Part"), true, 1)
             end).to.throw()
         end)
 
-        it("should clean up when one bound Instance is destroyed, by default", function()
-            local Test = Cleaner.new()
+        it("should clean up when one bound Instance is deparented, by default", function()
             local Part = Instance.new("Part")
+            Part.Parent = Workspace
+
+            local Test = Cleaner.fromInstanceLifecycles(Part)
             local Count = 0
 
-            Test:BindToInstanceLifecycles(Part)
             Test:Add(function()
                 Count += 1
             end)
 
             expect(Count).to.equal(0)
             Part.Parent = nil
-            expect(Count).to.equal(0)
+            task.wait()
+            expect(Count).to.equal(1)
             Part:Destroy()
+            task.wait()
             expect(Count).to.equal(1)
         end)
 
         it("should clean up when multiple bound Instances are destroyed, by default", function()
-            local Test = Cleaner.new()
             local Part1 = Instance.new("Part")
-            local Part2 = Instance.new("Part")
-            local Count = 0
+            Part1.Parent = Workspace
 
-            Test:BindToInstanceLifecycles({Part1, Part2})
+            local Part2 = Instance.new("Part")
+            Part2.Parent = Workspace
+
+            local Count = 0
+            local Test = Cleaner.fromInstanceLifecycles({Part1, Part2})
+
             Test:Add(function()
                 Count += 1
             end)
 
             expect(Count).to.equal(0)
             Part1.Parent = nil
+            task.wait()
             expect(Count).to.equal(0)
             Part2.Parent = nil
-            expect(Count).to.equal(0)
+            task.wait()
+            expect(Count).to.equal(1)
             Part1:Destroy()
-            expect(Count).to.equal(0)
+            task.wait()
+            expect(Count).to.equal(1)
             Part2:Destroy()
+            task.wait()
             expect(Count).to.equal(1)
         end)
 
-        it("should detect nil parent Instances if specified, instead of using the Destroyed event", function()
-            local Test = Cleaner.new()
+        it("should detect destroyed Instances if specified, instead of using deparent events", function()
             local Part = Instance.new("Part")
             Part.Parent = Workspace
             local Count = 0
-
-            Test:BindToInstanceLifecycles(Part, true)
+            
+            local Test = Cleaner.fromInstanceLifecycles(Part, true)
             Test:Add(function()
                 Count += 1
             end)
 
             expect(Count).to.equal(0)
             Part.Parent = nil
-            expect(Count).to.equal(1)
+            task.wait()
+            expect(Count).to.equal(0)
             Part:Destroy()
+            task.wait()
             expect(Count).to.equal(1)
         end)
 
         it("should clean when any of the given Instances are destroyed, if disjunctive is specified", function()
-            local Test = Cleaner.new()
+            local Part1 = Instance.new("Part")
+            Part1.Parent = Workspace
+
+            local Part2 = Instance.new("Part")
+            Part2.Parent = Workspace
+
+            local Test = Cleaner.fromInstanceLifecycles({Part1, Part2}, nil, true)
             local Count = 0
 
             Test:Add(function()
                 Count += 1
             end)
 
-            local Part1 = Instance.new("Part")
-            local Part2 = Instance.new("Part")
-            Test:BindToInstanceLifecycles({Part1, Part2}, nil, true)
-
             expect(Count).to.equal(0)
             Part1:Destroy()
+            task.wait()
             expect(Count).to.equal(1)
             Part2:Destroy()
+            task.wait()
             expect(Count).to.equal(1)
-        end)
-        
-        it("should reject when the Cleaner has already cleaned", function()
-            local Test = Cleaner.new()
-            Test:Clean()
-
-            expect(function()
-                Test:BindToInstanceLifecycles(Instance.new("Part"))
-            end).to.throw()
-        end)
-
-        it("should reject when the Cleaner is already bound to something's lifecycle", function()
-            local Test = Cleaner.new()
-            Test:BindToInstanceLifecycles(Instance.new("Part"))
-            
-            expect(function()
-                Test:BindToInstanceLifecycles(Instance.new("Part"))
-            end).to.throw()
         end)
     end)
 end
